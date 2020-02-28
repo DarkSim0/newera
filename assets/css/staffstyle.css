@@ -1,0 +1,77 @@
+.html,
+.body {
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.ams-sidenav {
+    color: white;
+    position: absolute;
+    left: 0px;
+    background-color: #3B3838;
+    width: 320px;
+    height: 100%;
+    border-right: 3px solid #00B0F0;
+}
+
+.ams-sidenav .ams-banner {
+    background-color: #595959;
+    height: 150px;
+    border-right: 3px solid #FFC000;
+    margin-right: -3px;
+}
+
+.ams-sidenav .profile-image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -100px;
+}
+
+.ams-sidenav .profile-image-container .profile-image {
+    border: 2px solid #00B0F0;
+    border-radius: 10px;
+    height: 160px;
+    width: 160px;
+}
+
+.ams-sidenav .profile-name {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    letter-spacing: 3px;
+    padding: 15px;
+    border-bottom: 2px dashed #595959;
+}
+
+.ams-sidenav .sidenav-content-container {
+    display: flex;
+    justify-content: center;
+}
+
+.ams-sidenav .sidenav-content-container .menu {
+    width: 100%;
+}
+
+.ams-sidenav .sidenav-content-container .menu .menu-item {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.ams-sidenav .sidenav-content-container .menu .active {
+    background-color: #211f1f;
+    color: #FFC000;
+}
+
+.ams-sidenav-right {
+    position: absolute;
+    right: 0px;
+    width: 320px;
+    height: 100%;
+    border-left: 1px solid #eee;
+    background-color: #fafafa;
+}
