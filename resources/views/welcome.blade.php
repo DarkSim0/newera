@@ -31,6 +31,7 @@
             <h4>ADMISSION</h4>
             <div class="collection">
                 <a href="index.html" class="collection-item">Home Page</a>
+                
                 <a href="{{url('/student_register')}}" class="collection-item">New Registration</a>
                 <a href="#" class="collection-item">Admission Office Contact Information</a>
             </div>

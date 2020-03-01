@@ -28,8 +28,17 @@ class registrationController extends Controller
 
 
     public function index()
-    {
-        return view('studentPage.index');
+    {   
+        $level = Auth::user()->id;
+        $check = DB::table('student_register')->where('Created_by',$level);
+        foreach($check as $chck){
+            if($chck->Created_by = $level ){
+                return view('welcome');
+            }else{
+                return view('studentPage.index');
+            }
+        }
+       
         //Using Access Rights
         // try{
         //     $level = Auth::user()->user_level;
@@ -67,7 +76,7 @@ class registrationController extends Controller
             studentRegist::create($regstudent);
 
         Session::flash('success','Basic info saved');
-        return back();
+        return redirect('/student_contact');
     }
 
     public function contact(){
