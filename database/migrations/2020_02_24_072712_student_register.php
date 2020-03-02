@@ -28,7 +28,6 @@ class StudentRegister extends Migration
             $table->string('cs');
             $table->string('religion');
             $table->string('Nationality');
-            $table->timestamps();
             $table->string('streetadd');
             $table->string('townprovince');
             $table->string('emailbasic');
@@ -47,7 +46,7 @@ class StudentRegister extends Migration
             $table->string('guardiancon');
             $table->string('elementary')->nullable();
             $table->string('elemattend')->nullable();
-            $table->string('elem    $tablegrad')->nullable();
+            $table->string('elemgrad')->nullable();
             $table->string('highschool')->nullable();
             $table->string('highattend')->nullable();
             $table->string('highgrad')->nullable();
@@ -60,6 +59,7 @@ class StudentRegister extends Migration
             $table->string('vocational')->nullable();
             $table->string('vocattend')->nullable();
             $table->string('vocgrad')->nullable();
+            $table->timestamps();
         });
     }
 
