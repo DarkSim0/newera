@@ -18,7 +18,7 @@
     <script type="text/javascript" src="{{asset('assets/js/jquery.js')}}"></script>
 
     <!-- Compiled and minified JavaScript -->
-    
+    @yield('custom_style')
 
 
 </head>

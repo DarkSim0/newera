@@ -29,6 +29,37 @@ class StudentRegister extends Migration
             $table->string('religion');
             $table->string('Nationality');
             $table->timestamps();
+            $table->string('streetadd');
+            $table->string('townprovince');
+            $table->string('emailbasic');
+            $table->string('landlinenum')->nullable();
+            $table->string('fatherfname')->nullable();
+            $table->string('fatherlname')->nullable();
+            $table->string('fathermname')->nullable();
+            $table->string('fathernationality')->nullable();
+            $table->string('fatheroccupation')->nullable();
+            $table->string('motherfname')->nullable();
+            $table->string('motherlname')->nullable();
+            $table->string('mothermname')->nullable();
+            $table->string('mothernationality')->nullable();
+            $table->string('motheroccupation')->nullable();
+            $table->string('contactper');
+            $table->string('guardiancon');
+            $table->string('elementary')->nullable();
+            $table->string('elemattend')->nullable();
+            $table->string('elem    $tablegrad')->nullable();
+            $table->string('highschool')->nullable();
+            $table->string('highattend')->nullable();
+            $table->string('highgrad')->nullable();
+            $table->string('senior')->nullable();
+            $table->string('seniorattend')->nullable();
+            $table->string('seniorgrad')->nullable();
+            $table->string('college')->nullable();
+            $table->string('collegeattend')->nullable();
+            $table->string('collegegrad')->nullable();
+            $table->string('vocational')->nullable();
+            $table->string('vocattend')->nullable();
+            $table->string('vocgrad')->nullable();
         });
     }
 

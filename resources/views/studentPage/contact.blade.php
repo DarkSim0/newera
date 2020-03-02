@@ -2,6 +2,9 @@
 @section('headers')
 More information 
 @endsection
+@section('custom_style')
+    
+@endsection
 @section('content')
 <form action="" method="POST">
     @csrf
