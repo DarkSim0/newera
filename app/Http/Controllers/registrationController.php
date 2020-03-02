@@ -19,6 +19,7 @@ use App\UserLevel;
 use Auth;
 
 
+
 class registrationController extends Controller
 {
     public function __construct()
@@ -26,18 +27,15 @@ class registrationController extends Controller
         $this->middleware('auth');
     }
 
+    public function dash()
+    {
+        return view ('studentPage.dashboard');
+    }
 
     public function index()
     {   
-        $level = Auth::user()->id;
-        $check = DB::table('student_register')->where('Created_by',$level);
-        foreach($check as $chck){
-            if($chck->Created_by = $level ){
-                return view('welcome');
-            }else{
-                return view('studentPage.index');
-            }
-        }
+          return view('studentPage.index');
+    }
        
         //Using Access Rights
         // try{
@@ -55,8 +53,7 @@ class registrationController extends Controller
         //         return view('home');
         //     }
         // }
-        
-    }
+
     public function store(Request $req){
 
             $regstudent = array(
@@ -79,9 +76,6 @@ class registrationController extends Controller
         return redirect('/student_contact');
     }
 
-    public function contact(){
-        return view('studentPage.contact');
-    }
 
     public function contactStore(){
         

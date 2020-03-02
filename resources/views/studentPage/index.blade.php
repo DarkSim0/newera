@@ -102,6 +102,48 @@ Personal Data Sheets
             <label for="Nationality">Nationality</label>
         </div>
     </div>
+    <div class="headers">
+        <h5>Address</h5>
+        <br>
+    </div>
+    <div class="input-field col s12">
+
+        <label for="entry_name">Street address/Apartement No/House No/building, floor, etc.</label>
+        
+        <input type="text" class="validate" >
+    </div>
+
+    <div class="row col l12" >
+        <div class="input-field col m6">
+            <input id="province" type="text" name="" class="validate" autocomplete="off">
+            <label for="province">Town/Province/Zipcode/Region</label>
+            <div id="listProvince">
+            </div>
+        </div>
+        <div class="input-field col m6">
+            <input type="text" id="email" class="validate" >
+            <label for="E-mail">E-mail Address</label>
+        </div>
+    </div>
+  
+    <div class="headers">
+        <h5>Contact Number</h5>
+        <br>
+    </div>
+    
+    <div class="row col l12">
+        
+        <div class="col l6" >
+            <div class="input-field ">
+                <input  name="" type="text" >
+                <label for="contactnum">Contact number</label>
+            </div>
+        </div>
+        <div class="input-field col s6">
+            <input  name="" type="text" >
+            <label for="emailadd" >Landline number(optional)</label>
+        </div>
+    </div>
     
 
     <div>
@@ -113,3 +155,31 @@ Personal Data Sheets
     </div>
 </form>
 @endsection
+@section('scripts')
+    <script >
+        
+        $('#province').keyup(function(){ 
+            var query = $(this).val();
+            if(query != '')
+            {
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+            url:"{{ route('autocomplete.search') }}",
+            method:"POST",
+            data:{query:query, _token:_token},
+            success:function(data){
+            $('#listProvince').fadeIn();  
+                        $('#listProvince').html(data);
+            }
+            });
+            }
+        });
+
+        $(document).on('click', 'li', function(){  
+            $('#province').val($(this).text());  
+            $('#listProvince').fadeOut();  
+        });  
+
+       
+    </script>
+@endsection 

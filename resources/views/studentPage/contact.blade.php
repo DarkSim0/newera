@@ -1,13 +1,13 @@
 @extends('student_template.master')
 @section('headers')
-Contact Information   
+More information 
 @endsection
 @section('content')
 <form action="" method="POST">
     @csrf
     <div class="input-field col s12">
 
-        <label for="entry_name">Street No/Apartement No/House No</label>
+        <label for="entry_name">Street address/Apartement No/House No/building, floor, etc.</label>
         
         <input type="text" class="validate" >
     </div>
@@ -25,63 +25,24 @@ Contact Information
         </div>
     </div>
   
-    <div class="row col l12" >
-   
-    
-        <div class="input-field col s4">
-            <input  id="age" name="age" type="text" class="validate">
-            <label for="age">Age</label>
-        </div>
-
-        <div class="input-field col l4">
-            <input id="birthdate" name="dob" type="text" class="datepicker">
-            <label for="birthdate">Birthdate</label>
-        </div>
-    </div>
 
     
     <div class="row col l12">
         
         <div class="col l6" >
             <div class="input-field ">
-                <input  name="birth_place" type="text" >
-                <label for="birthplace">Place of Birth</label>
+                <input  name="" type="text" >
+                <label for="contactnum">Contact number</label>
             </div>
         </div>
         <div class="input-field col s6">
-            <select name="cs" >
-            <option value="" disabled selected>Choose your Civil Status</option>
-            <option value="S">Single</option>
-            <option value="M">Married</option>
-            <option value="D">Divorced</option>
-            <option value="W">Widow(er)</option>
-                </select>
-            <label>Civil Status</label>
+            <input  name="" type="text" >
+            <label for="emailadd" >Landline number(optional)</label>
         </div>
     </div>
     
 
-    <div class="row col l12" >
-        <div class="input-field col m6">
-            <select name="religion" >
-            <option value="" disabled selected>Choose your Religion</option>
-            <option value="cath">Catholic</option>
-            <option value="chri">Christian</option>
-            <option value="isla">Islam</option>
-            <option value="ignc">Iglesia ni Cristo</option>
-            <option value="budd">Buddhist</option>
-            <option value="prot">Protestant</option>
-            <option value="jeho">Jehova's Witness</option>
-            <option value="pref">Prefer not to say</option>
-                </select>
-            <label>Religion</label>
-        </div>
-    
-        <div class="input-field col m6 ">
-            <input placeholder="Ex: Filipino" name="Nationality"  type="text" >
-            <label for="Nationality">Nationality</label>
-        </div>
-    </div>
+
 
   
 
