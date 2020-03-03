@@ -29,7 +29,8 @@ class registrationController extends Controller
 
     public function dash()
     {
-        return view ('studentPage.dashboard');
+        $checker = studentRegist::all();
+        return view ('studentPage.dashboard',compact('checker'));
     }
 
     public function index()
@@ -69,11 +70,42 @@ class registrationController extends Controller
                 'cs' => $req->cs,
                 'religion' => $req->religion,
                 'Nationality' => $req->Nationality, 
+                'streetadd' => $req->streetadd,
+                'townprovince' => $req->townprovince,
+                'emailbasic' => $req->emailbasic,
+                'landlinenum' => $req->landlinenum,
+                'fatherfname' => $req->fatherfname,
+                'fatherlname' => $req->fatherlname,
+                'fathermname' => $req->fathermname,
+                'fathernationality' => $req->fathernationality,
+                'fatheroccupation' => $req->fatheroccupation,
+                'motherfname' => $req->motherfname,
+                'motherlname' => $req->motherlname,
+                'mothermname' => $req->mothermname,
+                'mothernationality' => $req->mothernationality,
+                'motheroccupation' => $req->motheroccupation,
+                'contactper' => $req->contactper,
+                'guardiancon' => $req->guardiancon,
+                'elementary' => $req->elementary,
+                'elemattend' => $req->elemattend,
+                'elemgrad' => $req->elemgrad,
+                'highschool' => $req->highschool,
+                'highattend' => $req->highattend,
+                'highgrad' => $req->highgrad,
+                'senior' => $req->senior,
+                'seniorattend' => $req->seniorattend,
+                'seniorgrad' => $req->seniorgrad,
+                'college' => $req->college,
+                'collegeattend' => $req->collegeattend,
+                'collegegrad' => $req->collegegrad,
+                'vocational' => $req->vocational,
+                'vocattend' => $req->vocattend,
+                'vocgrad' => $req->vocgrad,
             );
             studentRegist::create($regstudent);
 
         Session::flash('success','Basic info saved');
-        return redirect('/student_contact');
+        return redirect('/');
     }
 
 

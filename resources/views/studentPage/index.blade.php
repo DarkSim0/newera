@@ -5,7 +5,6 @@ Personal Data Sheets
 @section('content')
 <form action="" method="POST">
     @csrf
-    
         <div class="input-field col s12">
             <select name="EntryStatus" >
                 <option value="" disabled selected>Choose</option>

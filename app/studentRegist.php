@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class studentRegist extends Model
 {
     protected $table = 'student_register';
+    protected $primaryKey = 'Created_by';
     protected $fillable = array(
         'EntryStatus',
         'Created_by',
