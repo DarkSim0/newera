@@ -18,6 +18,8 @@ use App\UserLevel;
 
 use Auth;
 
+use PDF;
+
 
 
 class registrationController extends Controller
@@ -132,5 +134,11 @@ class registrationController extends Controller
          $output .= '</ul>';
          echo $output;
         }
+    }
+    public function printform($id){
+        $print = studentRegist::find($id);
+        $pdf = PDF::loadView('studentPage.print',compact('print'));
+        return $pdf->stream('student_request.pdf');
+
     }
 }
