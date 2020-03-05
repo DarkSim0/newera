@@ -85,14 +85,14 @@ Personal Data Sheets
             <div class="input-field col m6">
                 <select name="religion" >
                 <option value="" disabled selected>Choose your Religion</option>
-                <option value="cath">Catholic</option>
-                <option value="chri">Christian</option>
-                <option value="isla">Islam</option>
-                <option value="ignc">Iglesia ni Cristo</option>
-                <option value="budd">Buddhist</option>
-                <option value="prot">Protestant</option>
-                <option value="jeho">Jehova's Witness</option>
-                <option value="pref">Prefer not to say</option>
+                <option value="Catholic">Catholic</option>
+                <option value="Christian">Christian</option>
+                <option value="Islam">Islam</option>
+                <option value="Iglesia ni Cristo">Iglesia ni Cristo</option>
+                <option value="Buddhist">Buddhist</option>
+                <option value="Protestan">Protestant</option>
+                <option value="Jehova's Witness">Jehova's Witness</option>
+                <option value="Prefer not to say">Prefer not to say</option>
                     </select>
                 <label>Religion</label>
             </div>
