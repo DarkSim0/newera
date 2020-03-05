@@ -8,10 +8,10 @@ Personal Data Sheets
         <div class="input-field col s12">
             <select name="EntryStatus" >
                 <option value="" disabled selected>Choose</option>
-                <option value="fresh">Freshman</option>
-                <option value="transfer">Transferee</option>
-                <option value="crosen">Cross Enrollee</option>
-                <option value="secound">Second Course</option>
+                <option value="Freshman">Freshman</option>
+                <option value="Transferee">Transferee</option>
+                <option value="Cross Enrollee">Cross Enrollee</option>
+                <option value="Second Course">Second Course</option>
                 <label for="EntryStatus" >Entry Status</label>
             </select>
             <label for="entry_name">Entry Status</label>
@@ -102,10 +102,12 @@ Personal Data Sheets
                 <label for="Nationality">Nationality</label>
             </div>
         </div>
+
         <div class="headers">
             <h5>Address</h5>
             <br>
         </div>
+
         <div class="input-field col s12">
     
             <label for="streetadd">Street address/Apartement No/House No/building, floor, etc.</label>

@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
 <meta name="apple-mobile-web-app-title" content="CodePen">
-<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="" />
 <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<title>CodePen - One Page Navigation CSS Menu</title>
+<title>NEU</title>
 <meta name="designer" content="Alberto Hartzet">
 <meta name="programer" content="Alberto Hartzet">
 <meta name="author" content="Alberto Hartzet">
@@ -227,14 +227,21 @@ a {
 <div class="ct" id="t4">
 <div class="ct" id="t5">
 <ul id="menu">
-<a href="#t1"><li class="icon fa fa-bolt" id="uno"></li></a>
-<a href="#t2"><li class="icon fa fa-keyboard-o" id="dos"></li></a>
+<a href="{{url('/student_register')}}"><li class="icon fa fa-bolt" id="uno"></li></a>
+<span><small>Pre-register</small></span>
+<a href="{{url('/student_register')}}"><li class="icon fa fa-keyboard-o" id="dos"></li></a>
 <a href="#t3"><li class="icon fa fa-rocket" id="tres"></li></a>
 <a href="#t4"><li class="icon fa fa-dribbble" id="cuatro"></li></a>
 <a href="#t5"><li class="icon fa fa-plus-circle" id="cinco"></li></a>
 </ul>
 <div class="page" id="p1">
-<section class="icon fa fa-bolt"><span class="title">Welcome</span><span class="hint">TYPE SOMETHING HERE</span></section>
+<section class="icon fa fa-bolt"><span class="title">{{Auth::user()->name}}</span><span class="hint">
+@if(Auth::user()->user_level==2)
+  Student
+@else 
+  Admin
+@endif 
+</span></section>
 </div>
 <div class="page" id="p2">
 <section class="icon fa fa-keyboard-o"><span class="title">Type</span></section>
