@@ -5,46 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('/pdf_assets/uikit.min.css')}}">
-    <title>{{$print->fname}}}</title>
+    <title>{{$print->fname}}</title>
 
     <style>
         #neu_logo{
             height: 90px;
             width: 90px;
-            margin-left: 580px;
-            margin-top: -70px;
+            margin-left: 10px;
+            margin-top: -20px;
             position: absolute;
         }
-        table{
-	border: 1px solid black;
-}
-
 
     </style>
 </head>
 <body>
 <div class="container">
-    <h3 class="h3" >Registration Form</h3>
     {{-- <img id="neu_logo" src="{{asset('/images/neu_logo.png')}}" alt="image"> --}}
-   
+    <center><h3 class="uk-article-title" >Registration Form</h3></center>
+    <center><h4 class="uk-article-meta" style="margin-top:-20px; margin-bottom:-20px;" >sample text here</h4></center>
     <br>
-        <p style="margin-left: 3px;" class="ins">Entry Status: <strong>{{$print->EntryStatus}}</strong></p>
-    <table style="width: 100%" >
-        <tbody>
+    <div class="uk-card uk-card-primary">
+        <div class="uk-card uk-card-body">
+            <h3 class="uk-card-title">Entry Status: <strong>{{$print->EntryStatus}}</strong></h3>
+            <p>Name: {{$print->fname}} {{$print->mname}} {{$print->lname}} </p>
+        </div>
+    </div>
+    <table class="uk-table uk-table-striped">
+        <caption> <strong>Basic Information</strong> </caption>
+        
+        <tfoot>
             <tr>
-                <td>Name: {{$print->fname}} {{$print->mname}} {{$print->lname}}</td>
                 <td>Gender: {{$print->gender}}</td>
-            </tr>
-        </tbody>
-    </table>
-  
-    <table style="width: 100%; margin-top:20px;">
-        <tbody>
-            <tr >
                 <td>Age: {{$print->age}}</td>
                 <td>Birth Date: {{$print->dob}}</td>
-                <td>Birth Place: {{$print->birth_place}}</td>
             </tr>
+        </tfoot>
+        <tbody>
             <tr>
                 <td>Civil Status: {{$print->cs}}</td>
                 <td>Nationality: {{$print->Nationality}}</td>
@@ -52,20 +48,32 @@
             </tr>
         </tbody>
     </table>
-
-    
-    <table style="width: 100%; margin-top:10px;" >
-        <tbody>
-            <tr >
-                <td>Address </td>
-            </tr>
+    <div class="uk-child-width-expand@s"  uk-grid>
+        <ul class="uk-list uk-list-striped">
+            <li>Address: {{$print->streetadd}}</li>
+            <li>Town province: {{$print->townprovince}}</li>
+        </ul>
+    </div>
+    <table class="uk-table uk-table-striped">
+        <caption> <strong>Contact Number</strong> </caption>
+        
+        <tfoot>
             <tr>
-                <td>{{$print->streetadd}}</td>
-                <td>{{$print->townprovince}}</td>
+                <td>Gender: {{$print->gender}}</td>
+                <td>Age: {{$print->age}}</td>
+                <td>Birth Date: {{$print->dob}}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>Civil Status: {{$print->cs}}</td>
+                <td>Nationality: {{$print->Nationality}}</td>
+                <td>Religion: {{$print->religion}}</td>
             </tr>
         </tbody>
     </table>
 </div>
+
 
 </body>
 </html>

@@ -14,10 +14,10 @@
 
 Auth::routes(['verify'=>true]);
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/','registrationController@dash')->middleware('verified');
-Route::get('/student_register','registrationController@index')->middleware('verified');
+Route::get('/','registrationController@dash');
+Route::get('/student_register','registrationController@index');
 Route::post('/student_register','registrationController@store');
 Route::post('/student_contact/autocomplete','registrationController@autoComplete')->name('autocomplete.search');
 Route::get('/student_register/{id}','registrationController@printform');
