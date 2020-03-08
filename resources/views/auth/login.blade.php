@@ -34,14 +34,14 @@
         }
     }
     #neu_logo{
-            height: auto;
+        height: auto;
             width: 100%;
             max-width: 100px;
-            margin-left: 40%;
+            margin-left: 43%;
             margin-top: -70%;
             position: absolute;
             position: relative;
-    display: inline;
+            
         }
         
 </style>

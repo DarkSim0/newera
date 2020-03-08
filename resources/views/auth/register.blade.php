@@ -41,7 +41,7 @@
             margin-top: -70%;
             position: absolute;
             position: relative;
-    display: inline;
+            display: inline;
         }
         
 </style>
