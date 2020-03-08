@@ -1,8 +1,7 @@
-<!-- W3hubs.com - Download Free Responsive Website Layout Templates designed on HTML5 CSS3,Bootstrap which are 100% Mobile friendly. w3Hubs all Layouts are responsive cross browser supported, best quality world class designs. -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Form Using Materialize Css</title>
+    <title>New Era</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
