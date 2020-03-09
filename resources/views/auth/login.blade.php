@@ -37,7 +37,7 @@
         height: auto;
             width: 100%;
             max-width: 100px;
-            margin-left: 43%;
+            margin-left: 40%;
             margin-top: -70%;
             position: absolute;
             position: relative;
@@ -52,7 +52,7 @@
     <div class="row card hoverable">
         <div class="card-content ">
             <img src="{{asset('images/neu_logo.png')}}" id="neu_logo" alt="">
-        <h4 class="center blue-text">Login</h4>
+       
         <form class="row s12" method="POST"  action="{{ route('login') }}" >
         @csrf
         <div class="col s12">
