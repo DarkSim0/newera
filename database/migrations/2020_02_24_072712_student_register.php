@@ -30,6 +30,7 @@ class StudentRegister extends Migration
             $table->string('Nationality');
             $table->string('streetadd');
             $table->string('townprovince');
+            $table->string('contactnum');
             $table->string('emailbasic');
             $table->string('landlinenum')->nullable();
             $table->string('fatherfname')->nullable();

@@ -24,6 +24,7 @@ class studentRegist extends Model
         'streetadd',
         'townprovince',
         'emailbasic',
+        'contactnum',
         'landlinenum',
         'fatherfname',
         'fatherlname',
@@ -53,4 +54,9 @@ class studentRegist extends Model
         'vocattend',
         'vocgrad',
     );
+    
+    public function user()
+    {
+        return $this->belongsTo('App\Users','Created_by');
+    }
 }
