@@ -5,6 +5,20 @@ Personal Data Sheets
 @section('content')
 <form action="" method="POST">
     @csrf
+   
+      
+            
+        @if($errors->any())
+        
+        <div class="col s12">
+            <ul class="collection">
+                @foreach($errors->all() as $er)
+                <li class="collection-item red" style="color:white; font-size:large" > <center>Missing: {{$er}}</center> </li>
+                @endforeach
+              </ul>
+        </div>
+         
+        @endif
         <div class="input-field col s12">
             <select name="EntryStatus" >
                 <option value="" disabled selected>Choose</option>
@@ -117,7 +131,8 @@ Personal Data Sheets
     
         <div class="row col l12" >
             <div class="input-field col m6">
-                <input id="province" type="text" name="townprovince" class="validate" autocomplete="off">
+                <i class="material-icons prefix">textsms</i>
+                <input id="province" type="text" name="townprovince" class="autocomplete" autocomplete="off">
                 <label for="province">Town/Province/Zipcode/Region</label>
                 <div id="listProvince">
                 </div>

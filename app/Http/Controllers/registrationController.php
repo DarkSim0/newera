@@ -59,6 +59,37 @@ class registrationController extends Controller
 
     public function store(Request $req){
 
+            $validation = $req->validate([
+                'EntryStatus' => 'required',
+                'fname' => 'required',
+                'mname' => 'required',
+                'lname' => 'required',
+                'gender' => 'required',
+                'age' => 'required',
+                'dob' => 'required',
+                'birth_place' => 'required',
+                'cs' => 'required',
+                'religion' => 'required',
+                'Nationality' => 'required',
+                'contactnum' =>'required' , 
+                'streetadd' => 'required',
+                'townprovince' => 'required',
+                'emailbasic' => 'required',
+                'landlinenum' => 'required',
+                'fatherfname' => 'required',
+                'fatherlname' => 'required',
+                'fathermname' => 'required',
+                'fathernationality' => 'required',
+                'fatheroccupation' => 'required',
+                'motherfname' => 'required',
+                'motherlname' => 'required',
+                'mothermname' => 'required',
+                'mothernationality' => 'required',
+                'motheroccupation' => 'required',
+                'contactper' => 'required',
+                'guardiancon' => 'required'
+            ]);
+
             $regstudent = array(
                 'EntryStatus' => $req->EntryStatus,
                 'Created_by' =>Auth::user()->id,
@@ -111,10 +142,6 @@ class registrationController extends Controller
         return redirect('/');
     }
 
-
-    public function contactStore(){
-        
-    }
 
     public function autoComplete(Request $req)
     {

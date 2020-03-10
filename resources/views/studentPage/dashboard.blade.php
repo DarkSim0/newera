@@ -227,9 +227,18 @@ a {
 <div class="ct" id="t4">
 <div class="ct" id="t5">
 <ul id="menu">
-<a href="{{url('/student_register')}}"><li class="icon fa fa-bolt" id="uno"></li></a>
-<span><small>Pre-register</small></span>
-<a href="{{url('/student_register')}}"><li class="icon fa fa-keyboard-o" id="dos"></li></a>
+@foreach($checker as $chck)
+  @if($chck->Created_by == Auth::user()->id  )
+    <a href="{{url('/student_register/'.$chck->Created_by)}}"><li class="icon fa fa-keyboard-o" id="dos"></li></a>
+    <span><small>Print Registration Form</small></span>
+    @else
+    <a href="{{url('/student_register')}}"><li class="icon fa fa-bolt" id="uno"></li></a>
+    <span><small>Pre-register</small></span>
+  @endif
+ 
+
+@endforeach
+<a href="{{url('/student_register')}}"></a>
 <a href="#t3"><li class="icon fa fa-rocket" id="tres"></li></a>
 <a href="#t4"><li class="icon fa fa-dribbble" id="cuatro"></li></a>
 <a href="#t5"><li class="icon fa fa-plus-circle" id="cinco"></li></a>

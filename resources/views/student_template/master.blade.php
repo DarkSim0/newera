@@ -48,7 +48,7 @@
 
         </div>
 
-        <script src="{{asset('assets/js/materialize.js')}}"></script>
+        <script src="{{asset('assets/js/materialize.min.js')}}"></script>
      @yield('scripts')
         <script>
             $(document).ready(function() {
