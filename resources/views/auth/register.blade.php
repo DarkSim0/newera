@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New Era</title>
+    <title>NEU</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -43,7 +43,10 @@
             position: relative;
             display: inline;
         }
-        
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #b8b894;
+        opacity: 1; /* Firefox */
+        }    
 </style>
 </head>
 <body>

@@ -4,19 +4,16 @@ Personal Data Sheets
 @endsection
 @section('content')
 <form action="" method="POST">
-    @csrf
-   
-      
-            
+    @csrf    
         @if($errors->any())
         
-        <div class="col s12">
-            <ul class="collection">
-                @foreach($errors->all() as $er)
-                <li class="collection-item red" style="color:white; font-size:large" > <center>Missing: {{$er}}</center> </li>
-                @endforeach
-              </ul>
-        </div>
+            <div class="col s12">
+                <ul class="collection">
+                    @foreach($errors->all() as $er)
+                    <li class="collection-item red" style="color:white; font-size:large" > <center>Missing: {{$er}}</center> </li>
+                    @endforeach
+                </ul>
+            </div>
          
         @endif
         <div class="input-field col s12">

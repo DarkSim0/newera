@@ -229,10 +229,10 @@ a {
 <ul id="menu">
 @foreach($checker as $chck)
   @if($chck->Created_by == Auth::user()->id  )
-    <a href="{{url('/student_register/'.$chck->Created_by)}}"><li class="icon fa fa-keyboard-o" id="dos"></li></a>
+    <a target="_blank" href="{{url('/student_register/'.$chck->Created_by)}}"><li class="icon fa fa-keyboard-o" id="dos"></li></a>
     <span><small>Print Registration Form</small></span>
     @else
-    <a href="{{url('/student_register')}}"><li class="icon fa fa-bolt" id="uno"></li></a>
+    <a  href="{{url('/student_register')}}"><li class="icon fa fa-bolt" id="uno"></li></a>
     <span><small>Pre-register</small></span>
   @endif
  
