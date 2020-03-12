@@ -16,6 +16,8 @@ use App\Towns;
 
 use App\UserLevel;
 
+use App\Programs;
+
 use Auth;
 
 use PDF;
@@ -32,12 +34,14 @@ class registrationController extends Controller
     public function dash()
     {
         $checker = studentRegist::all();
+        
         return view ('studentPage.dashboard',compact('checker'));
     }
 
     public function index()
     {   
-          return view('studentPage.index');
+        $prog = Programs::orderBy('prog_name','asc')->get();
+        return view('studentPage.index',compact('prog'));
     }
        
         //Using Access Rights
@@ -87,7 +91,9 @@ class registrationController extends Controller
                 'mothernationality' => 'required',
                 'motheroccupation' => 'required',
                 'contactper' => 'required',
-                'guardiancon' => 'required'
+                'guardiancon' => 'required',
+                'firstChoice' => 'required',
+                'secondChoice' => 'required'
             ]);
 
             $regstudent = array(
@@ -135,6 +141,8 @@ class registrationController extends Controller
                 'vocational' => $req->vocational,
                 'vocattend' => $req->vocattend,
                 'vocgrad' => $req->vocgrad,
+                'firstChoice' => $req->firstChoice,
+                'secondChoice' => $req->secondChoice,
             );
             studentRegist::create($regstudent);
 
@@ -150,7 +158,7 @@ class registrationController extends Controller
          $query = $req->get('query');
          $data = DB::table('towns')
            ->where('Town', 'LIKE', "%{$query}%")
-           ->take(10)
+           ->take(5)
            ->get();
          $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
          foreach($data as $row)

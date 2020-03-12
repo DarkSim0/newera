@@ -60,6 +60,8 @@ class StudentRegister extends Migration
             $table->string('vocational')->nullable();
             $table->string('vocattend')->nullable();
             $table->string('vocgrad')->nullable();
+            $table->string('firstChoice');
+            $table->string('secondChoice');
             $table->timestamps();
         });
     }

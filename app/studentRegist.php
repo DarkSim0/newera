@@ -53,6 +53,8 @@ class studentRegist extends Model
         'vocational',
         'vocattend',
         'vocgrad',
+        'firstChoice',
+        'secondChoice'
     );
     
     public function user()

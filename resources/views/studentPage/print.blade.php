@@ -158,6 +158,19 @@
                 </tr>
             </tbody>
         </table>
+        <table class="uk-table uk-table-striped">
+            <caption> <strong>Course Choice</strong> </caption>
+            <tbody>
+                <tr>
+                    <td>First Choice: </td>
+                    <td>{{$print->firstChoice}} </td>
+                </tr>
+                <tr>
+                    <td>Second Choice: </td>
+                    <td>{{$print->secondChoice}} </td>
+                </tr>
+            </tbody>
+        </table>
    
 </div>
 </body>
