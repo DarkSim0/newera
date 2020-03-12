@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate as GateContract;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -27,17 +28,17 @@ class AuthServiceProvider extends ServiceProvider
         
         //admin
         $gate->define('isAdmin',function($user){
-            return $user->user_type == '1';
+            return $user->user_level == 1;
         });
 
         //student
         $gate->define('isStudent',function($user){
-            return $user->user_type == '2';
+            return $user->user_level == 2;
         });
         
         //staff
         $gate->define('isStaff',function($user){
-            return $user->user_type == '3';
+            return $user->user_level == 3;
         });
     }
 }

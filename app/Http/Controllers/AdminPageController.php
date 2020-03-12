@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Gate;
+
 class AdminPageController extends Controller
 {
     /**
@@ -11,9 +13,18 @@ class AdminPageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __construct()
     {
-        return view ('adminPage.index');
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {   
+        if(!Gate::allows('isAdmin')){
+            abort(404,"Sorry You can't access this page");
+        }
+        
+        return view('adminPage.index');
     }
 
     /**
