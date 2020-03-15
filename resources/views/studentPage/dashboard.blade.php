@@ -231,12 +231,10 @@ a {
   @if($chck->Created_by == Auth::user()->id  )
     <a target="_blank" href="{{url('/student_register/'.$chck->Created_by)}}"><li class="icon fa fa-keyboard-o" id="dos"></li></a>
     <span><small>Print Registration Form</small></span>
-    @else
+    @elseif($chck->Created_by == '') ) 
     <a  href="{{url('/student_register')}}"><li class="icon fa fa-bolt" id="uno"></li></a>
     <span><small>Pre-register</small></span>
   @endif
- 
-
 @endforeach
 <a href="{{url('/student_register')}}"></a>
 <a href="#t3"><li class="icon fa fa-rocket" id="tres"></li></a>
@@ -244,7 +242,13 @@ a {
 <a href="#t5"><li class="icon fa fa-plus-circle" id="cinco"></li></a>
 </ul>
 <div class="page" id="p1">
+
+ 
+
 <section class="icon fa fa-bolt"><span class="title">{{Auth::user()->name}}</span><span class="hint">
+  @if($errors->any())
+  <h2 >{{$errors->first()}}</h2>
+  @endif
 @if(Auth::user()->user_level==2)
   Student
 @else 

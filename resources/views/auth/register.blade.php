@@ -98,8 +98,10 @@
         </div> -->
         <div class="col s12 center">
             <button type="submit" class="btn btn-large waves-effect waves-light blue">
-                    Register
+                   Confirm Registration
                 </button>
+                <br><br>
+                <a href="{{url('/login')}}">Back to login page</a>
         </div>
     </form>
     </div>

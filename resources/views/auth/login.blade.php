@@ -99,6 +99,8 @@
             <p><label><input type="checkbox"></label></p>
         </div>
         <div class="col s12 center">
+        <a href="{{url('/register')}}" class="btn btn-large waves-effect waves-light blue" >Register</a>
+            
             <button type="submit" class="btn btn-large waves-effect waves-light blue">
                     Login<i class="material-icons right">send</i>
                 </button>

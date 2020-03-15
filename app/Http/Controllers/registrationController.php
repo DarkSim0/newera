@@ -35,6 +35,7 @@ class registrationController extends Controller
 
     public function dash()
     {
+        
         $checker = studentRegist::all();
         
         return view ('studentPage.dashboard',compact('checker'));
@@ -42,8 +43,24 @@ class registrationController extends Controller
 
     public function index()
     {   
-        $prog = Programs::orderBy('prog_name','asc')->get();
-        return view('studentPage.index',compact('prog'));
+        $regExist = studentRegist::all();
+        // foreach($regExist as $re)
+        // {
+        //     if($re->Created_by == Auth::user()->id){
+        //         echo "this is no work";
+        //     }else{
+        //         echo "this works";
+        //     }
+        // }
+        foreach($regExist as $re){
+            if($re->Created_by == Auth::user()->id){
+                return Redirect::back()->withErrors(['You already filled the form']);
+            } else {
+                $prog = Programs::orderBy('prog_name','asc')->get();
+                return view('studentPage.index',compact('prog'));
+            }
+        }    
+
     }
        
         //Using Access Rights
