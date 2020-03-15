@@ -1,231 +1,323 @@
 @extends('admin_template.master')
 @section('content')
-<div class="row">
-    <!-- Column -->
-    <div class="col-lg-4 col-xlg-3 col-md-5">
-        <!-- Column -->
-        <div class="card">
-            <img class="card-img-top" src="../assets/images/background/profile-bg.jpg" alt="Card image cap">
-            <div class="card-block little-profile text-center">
-                <div class="pro-img"><img src="../assets/images/users/4.jpg" alt="user" /></div>
-                <h3 class="m-b-0">Angela Dominic</h3>
-                <p>Web Designer &amp; Developer</p>
-                <a href="javascript:void(0)" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded">Follow</a>
-                <div class="row text-center m-t-20">
-                    <div class="col-lg-4 col-md-4 m-t-20">
-                        <h3 class="m-b-0 font-light">1099</h3><small>Articles</small></div>
-                    <div class="col-lg-4 col-md-4 m-t-20">
-                        <h3 class="m-b-0 font-light">23,469</h3><small>Followers</small></div>
-                    <div class="col-lg-4 col-md-4 m-t-20">
-                        <h3 class="m-b-0 font-light">6035</h3><small>Following</small></div>
-                </div>
-            </div>
-        </div>
-        <!-- Column -->
-        <div class="card">
-            <div class="card-block bg-info">
-                <h4 class="text-white card-title">My Contacts</h4>
-                <h6 class="card-subtitle text-white m-b-0 op-5">Checkout my contacts here</h6>
-            </div>
-            <div class="card-block">
-                <div class="message-box contact-box">
-                    <h2 class="add-ct-btn"><button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark">+</button></h2>
-                    <div class="message-widget contact-widget">
-                        <!-- Message -->
-                        <a href="#">
-                            <div class="user-img"> <img src="../assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
-                            <div class="mail-contnet">
-                                <h5>Pavan kumar</h5> <span class="mail-desc">info@wrappixel.com</span></div>
-                        </a>
-                        <!-- Message -->
-                        <a href="#">
-                            <div class="user-img"> <img src="../assets/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
-                            <div class="mail-contnet">
-                                <h5>Sonu Nigam</h5> <span class="mail-desc">pamela1987@gmail.com</span></div>
-                        </a>
-                        <!-- Message -->
-                        <a href="#">
-                            <div class="user-img"> <span class="round">A</span> <span class="profile-status away pull-right"></span> </div>
-                            <div class="mail-contnet">
-                                <h5>Arijit Sinh</h5> <span class="mail-desc">cruise1298.fiplip@gmail.com</span></div>
-                        </a>
-                        <!-- Message -->
-                        <a href="#">
-                            <div class="user-img"> <img src="../assets/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
-                            <div class="mail-contnet">
-                                <h5>Pavan kumar</h5> <span class="mail-desc">kat@gmail.com</span></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="masonry row">
+    <div class="col s12">
+      <h2>Dashboardsddd</h2>
     </div>
-    <div class="col-lg-8 col-xlg-9 col-md-7">
-        <div class="card">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs profile-tab" role="tablist">
-                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Activity</a> </li>
-                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a> </li>
-                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a> </li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div class="tab-pane active" id="home" role="tabpanel">
-                    <div class="card-block">
-                        <div class="profiletimeline">
-                            <div class="sl-item">
-                                <div class="sl-left"> <img src="../assets/images/users/1.jpg" alt="user" class="img-circle"> </div>
-                                <div class="sl-right">
-                                    <div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                        <p>assign a new task <a href="#"> Design weblayout</a></p>
-                                        <div class="row">
-                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img1.jpg" alt="user" class="img-responsive radius"></div>
-                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img2.jpg" alt="user" class="img-responsive radius"></div>
-                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img3.jpg" alt="user" class="img-responsive radius"></div>
-                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img4.jpg" alt="user" class="img-responsive radius"></div>
-                                        </div>
-                                        <div class="like-comm"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="sl-item">
-                                <div class="sl-left"> <img src="../assets/images/users/2.jpg" alt="user" class="img-circle"> </div>
-                                <div class="sl-right">
-                                    <div> <a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                        <div class="m-t-20 row">
-                                            <div class="col-md-3 col-xs-12"><img src="../assets/images/big/img1.jpg" alt="user" class="img-responsive radius"></div>
-                                            <div class="col-md-9 col-xs-12">
-                                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. </p> <a href="#" class="btn btn-success"> Design weblayout</a></div>
-                                        </div>
-                                        <div class="like-comm m-t-20"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="sl-item">
-                                <div class="sl-left"> <img src="../assets/images/users/3.jpg" alt="user" class="img-circle"> </div>
-                                <div class="sl-right">
-                                    <div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                        <p class="m-t-10"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper </p>
-                                    </div>
-                                    <div class="like-comm m-t-20"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="sl-item">
-                                <div class="sl-left"> <img src="../assets/images/users/4.jpg" alt="user" class="img-circle"> </div>
-                                <div class="sl-right">
-                                    <div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                        <blockquote class="m-t-10">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                        </blockquote>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--second tab-->
-                <div class="tab-pane" id="profile" role="tabpanel">
-                    <div class="card-block">
-                        <div class="row">
-                            <div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>
-                                <br>
-                                <p class="text-muted">Johnathan Deo</p>
-                            </div>
-                            <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
-                                <br>
-                                <p class="text-muted">(123) 456 7890</p>
-                            </div>
-                            <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
-                                <br>
-                                <p class="text-muted">johnathan@admin.com</p>
-                            </div>
-                            <div class="col-md-3 col-xs-6"> <strong>Location</strong>
-                                <br>
-                                <p class="text-muted">London</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <p class="m-t-30">Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries </p>
-                        <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <h4 class="font-medium m-t-30">Skill Set</h4>
-                        <hr>
-                        <h5 class="m-t-30">Wordpress <span class="pull-right">80%</span></h5>
-                        <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                        </div>
-                        <h5 class="m-t-30">HTML 5 <span class="pull-right">90%</span></h5>
-                        <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                        </div>
-                        <h5 class="m-t-30">jQuery <span class="pull-right">50%</span></h5>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                        </div>
-                        <h5 class="m-t-30">Photoshop <span class="pull-right">70%</span></h5>
-                        <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane" id="settings" role="tabpanel">
-                    <div class="card-block">
-                        <form class="form-horizontal form-material">
-                            <div class="form-group">
-                                <label class="col-md-12">Full Name</label>
-                                <div class="col-md-12">
-                                    <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="example-email" class="col-md-12">Email</label>
-                                <div class="col-md-12">
-                                    <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Password</label>
-                                <div class="col-md-12">
-                                    <input type="password" value="password" class="form-control form-control-line">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Phone No</label>
-                                <div class="col-md-12">
-                                    <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Message</label>
-                                <div class="col-md-12">
-                                    <textarea rows="5" class="form-control form-control-line"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-12">Select Country</label>
-                                <div class="col-sm-12">
-                                    <select class="form-control form-control-line">
-                                        <option>London</option>
-                                        <option>India</option>
-                                        <option>Usa</option>
-                                        <option>Canada</option>
-                                        <option>Thailand</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-success">Update Profile</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+    <div class="col l3 m6 s12">
+
+      <div class="card">
+        <div class="card-stacked">
+          <div class="card-metrics card-metrics-static">
+            <div class="card-metric">
+              <div class="card-metric-title">Revenue</div>
+              <div class="card-metric-value">$12,476.00</div>
+              <div class="card-metric-change increase">
+                <i class="material-icons left">keyboard_arrow_up</i>
+                12%
+              </div>
             </div>
+          </div>
         </div>
+        <div class="card-chart">
+          <canvas id="flush-area-chart-blue" height="100px"></canvas>
+        </div>
+      </div>
+
     </div>
-</div>
+    <div class="col l3 m6 s12">
+
+      <div class="card">
+        <div class="card-stacked">
+          <div class="card-metrics card-metrics-static">
+            <div class="card-metric">
+              <div class="card-metric-title">Clicks</div>
+              <div class="card-metric-value">11,893</div>
+              <div class="card-metric-change increase">
+                <i class="material-icons left">keyboard_arrow_up</i>
+                8%
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-chart">
+          <canvas id="flush-area-chart-yellow" height="100px"></canvas>
+        </div>
+      </div>
+
+    </div>
+    <div class="col l3 m6 s12">
+
+      <div class="card">
+        <div class="card-stacked">
+          <div class="card-metrics card-metrics-static">
+            <div class="card-metric">
+              <div class="card-metric-title">Users</div>
+              <div class="card-metric-value">230,648</div>
+              <div class="card-metric-change decrease">
+                <i class="material-icons left">keyboard_arrow_down</i>
+                2%
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-chart">
+          <canvas id="flush-area-chart-pink" height="100"></canvas>
+        </div>
+      </div>
+
+    </div>
+    <div class="col l3 m6 s12">
+
+      <div class="card">
+        <div class="card-stacked">
+          <div class="card-metrics card-metrics-static">
+            <div class="card-metric">
+              <div class="card-metric-title">Conversion Rate</div>
+              <div class="card-metric-value">0.24%</div>
+              <div class="card-metric-change decrease">
+                <i class="material-icons left">keyboard_arrow_down</i>
+                9%
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-chart">
+          <canvas id="flush-area-chart-green" height="100"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col s12">
+
+      <div class="card">
+        <div class="card-metrics card-metrics-toggle card-metrics-centered">
+          <div class="card-metric waves-effect active" data-metric="revenue">
+            <div class="card-metric-title">Revenue</div>
+            <div class="card-metric-value">$12,476.00</div>
+            <div class="card-metric-change">
+              <i class="material-icons">keyboard_arrow_up</i>
+              12%
+            </div>
+          </div>
+          <div class="card-metric waves-effect" data-metric="users">
+            <div class="card-metric-title">Users</div>
+            <div class="card-metric-value">2024</div>
+            <div class="card-metric-change">
+              <i class="material-icons">keyboard_arrow_up</i>
+              9%
+            </div>
+          </div>
+          <div class="card-metric waves-effect" data-metric="ctr">
+            <div class="card-metric-title">CTR</div>
+            <div class="card-metric-value">0.20%</div>
+            <div class="card-metric-change">
+              <i class="material-icons">keyboard_arrow_up</i>
+              4%
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <canvas class="card-chart" id="main-toggle-line-chart" width="400" height="400"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col m6 s12">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Updates</span>
+          <ul class="badge-updates">
+            <li>
+              <span class="new badge red" data-badge-caption="refund"></span>
+              <span class="message">45$ refunded to Alan Chang</span>
+              <span class="time">14 minutes ago</span>
+            </li>
+            <li>
+              <span class="new badge green" data-badge-caption="purchase"></span>
+              <span class="message">45$ from Alan Chang</span>
+              <span class="time">14 minutes ago</span>
+            </li>
+            <li>
+              <span class="new badge red" data-badge-caption="refund"></span>
+              <span class="message">45$ refunded to Alan Chang</span>
+              <span class="time">14 minutes ago</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col m6 s12">
+      <div id="tab-legend-chart-card" class="card primary-color">
+        <div class="card-content">
+          <p class="white-text">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-content">
+          <canvas class="card-chart" id="tab-legend-line-chart" width="400" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col m6 s12">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Stacked Bar Chart</div>
+          <div class="chart-wrapper">
+            <canvas id="stacked-bar-chart" width="400" height="400"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--     <div class="col m6 s12">
+      <div class="card horizontal">
+        <div class="card-stacked">
+          <div class="card-metrics">
+            <div class="card-metric waves-effect active">
+              <div class="card-metric-title">Revenue</div>
+              <div class="card-metric-value">$12,476.00</div>
+              <div class="card-metric-change">
+                <i class="material-icons left">keyboard_arrow_up</i>
+                12%
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <canvas id="mini-line-chart" width="100%" height="100%"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col m6 s12">
+      <div class="card horizontal">
+        <div class="card-stacked">
+          <div class="card-metrics">
+            <div class="card-metric waves-effect active">
+              <div class="card-metric-title">Revenue</div>
+              <div class="card-metric-value">$12,476.00</div>
+              <div class="card-metric-change">
+                <i class="material-icons left">keyboard_arrow_up</i>
+                12%
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <canvas id="mini-stacked-bar-chart" width="100%" height="100%"></canvas>
+        </div>
+      </div>
+
+    </div> -->
+
+    <div class="col m6 s12">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Devices</span>
+          <div class="row row-vertical-center">
+            <div class="col s6">
+              <canvas id="doughnut-chart" width="50%"></canvas>
+            </div>
+            <div class="col s6">
+              <div class="chart-legend-wrapper"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="masonry row">
+    <div class="col s12">
+      <h2>Secondary Data</h2>
+    </div>
+
+    <div class="col m6 s12">
+      <div class="card">
+        <div class="card-content">
+          <div id="vmap" style="width: 100%; height: 400px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col m6 s12">
+      <div class="card">
+        <div id='calendar'></div>
+      </div>
+    </div>
+
+    <div class="col s12">
+      <div class="card">
+        <table id="default-table-example" class="row-border" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th><label><input name="select_all" value="1" id="example-select-all" type="checkbox" /><span></span></label></th>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <!-- <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+            </tr>
+          </tfoot> -->
+          <tbody>
+            <tr>
+              <td>Tiger Nixon</td>
+              <td>System Architect</td>
+              <td>Edinburgh</td>
+              <td>61</td>
+              <td>2011/04/25</td>
+              <td>$320,800</td>
+            </tr>
+            <tr>
+              <td>Garrett Winters</td>
+              <td>Accountant</td>
+              <td>Tokyo</td>
+              <td>63</td>
+              <td>2011/07/25</td>
+              <td>$170,750</td>
+            </tr>
+            <tr>
+              <td>Ashton Cox</td>
+              <td>Junior Technical Author</td>
+              <td>San Francisco</td>
+              <td>66</td>
+              <td>2009/01/12</td>
+              <td>$86,000</td>
+            </tr>
+            <tr>
+              <td>Cedric Kelly</td>
+              <td>Senior Javascript Developer</td>
+              <td>Edinburgh</td>
+              <td>22</td>
+              <td>2012/03/29</td>
+              <td>$433,060</td>
+            </tr>
+            <tr>
+              <td>Airi Satou</td>
+              <td>Accountant</td>
+              <td>Tokyo</td>
+              <td>33</td>
+              <td>2008/11/28</td>
+              <td>$162,700</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
 @endsection

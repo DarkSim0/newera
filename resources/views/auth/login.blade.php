@@ -37,7 +37,7 @@
         height: auto;
             width: 100%;
             max-width: 100px;
-            margin-left: 40%;
+            margin-left: 41%;
             margin-top: -70%;
             position: absolute;
             position: relative;
