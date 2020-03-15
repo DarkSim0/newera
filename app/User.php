@@ -40,4 +40,8 @@ class User extends Authenticatable //implements MustVerifyEmail
     public function register(){
         return $this->hasOne('App\studentRegist','Created_by');
     }
+
+    public function sched(){
+        return $this->hasOne('App\schedules');
+    }
 }

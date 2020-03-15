@@ -20,6 +20,8 @@ use App\Programs;
 
 use Auth;
 
+use App\schedules;
+
 use PDF;
 
 
@@ -158,7 +160,7 @@ class registrationController extends Controller
          $query = $req->get('query');
          $data = DB::table('towns')
            ->where('Town', 'LIKE', "%{$query}%")
-           ->take(5)
+           ->take(3)
            ->get();
          $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
          foreach($data as $row)
@@ -175,6 +177,26 @@ class registrationController extends Controller
         $print = studentRegist::find($id);
         $pdf = PDF::loadView('studentPage.print',compact('print'));
         return $pdf->stream('student_request.pdf');
+
+    }
+
+    public function schedule(){
+        return view('studentPage.schedule');
+    }
+
+    public function scheduleStore(Request $req){
+        $validation = $req->validate([
+            'student_sched' => 'required'
+        ]);
+
+        $schedStudent = array(
+            'student_sched' => $req->student_sched,
+            'Created_by' =>Auth::user()->id,
+            'remarks' => $req->remarks,
+        );
+        schedules::create($schedStudent);
+
+        Session::flash('success','You have successfully reserve a slot');
 
     }
 }

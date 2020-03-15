@@ -23,3 +23,5 @@ Route::post('/student_contact/autocomplete','registrationController@autoComplete
 Route::get('/student_register/{id}','registrationController@printform');
 
 Route::get('/admin','AdminPageController@index');
+
+Route::get('/schedule_exam','registrationController@schedule');
