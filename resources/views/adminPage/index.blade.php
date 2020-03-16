@@ -90,7 +90,6 @@
     </div>
 
     <div class="col s12">
-
       <div class="card">
         <div class="card-metrics card-metrics-toggle card-metrics-centered">
           <div class="card-metric waves-effect active" data-metric="revenue">
