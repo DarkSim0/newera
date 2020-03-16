@@ -44,4 +44,8 @@ class User extends Authenticatable //implements MustVerifyEmail
     public function sched(){
         return $this->hasOne('App\schedules');
     }
+
+    public function level(){
+        return $this->hasOne(UserLevel::class,'id'); // select * from user_rights where id = 1
+    }
 }

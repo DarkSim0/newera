@@ -3,7 +3,7 @@
 Schedule your exam    
 @endsection
 @section('content')
-<form action="" method="POST">
+<form action="" name="schedForm" method="POST">
     @csrf    
         @if($errors->any())
         
@@ -17,34 +17,46 @@ Schedule your exam
          
         @endif
         
-    
-        
-      
         <div class="row col l12" >
-          
-    
             <div class="input-field col l6">
-                <input placeholder="" id="birthdate" value="{{ old('dob') }}" name="dob" type="date" class="datepicker">
-                <label for="birthdate">Birthdate</label>
+                <input placeholder="" id="sched" value="{{ old('schedule_sched') }}" name="student_sched" type="text" class="datepicker">
+                <label for="student_sched">Exam date</label>
             </div>
-
+            <div class="input-field col l6">
+                <label>
+                    <input type="checkbox" name="confirm"  onclick="copyCat(this.form)" >
+                    <span>Click if you agree</span>
+                  </label>
+            </div>
+            <div class="row col l12">
+                <div class="input-field col l6">
+                    <input type="text" id="schedEnd" name="student_schedEnd" readonly>    
+                </div>    
+                <div class="input-field col l6">
+                    <label for="student_schedEnd">Confirm date</label>
+                </div>  
+               
+            </div>
             
-            <label for="streetadd">Remarks</label>
-            <textarea name="" class="validate" cols="3" rows="3"></textarea>
-            
+           
         </div>
-    
-        
-     
 
 
         <div>
             <a class="btn waves-effect waves-light left"  href="{{url('/')}}">Go Back</a>
             <button class="btn waves-effect waves-light right" type="submit" name="action">
-                <a type="submit" style="color: white;">Continue</a>
+                <a type="submit" style="color:white;">Continue</a>
             <i class="material-icons right">send</i>
-            
         </div>
    
 </form>
+@endsection
+@section('scripts')
+    <script type="text/javascript" >
+        function copyCat(copy){
+            if(copy.confirm.checked == true){
+                copy.student_schedEnd.value = copy.student_sched.value;
+            }
+        }
+    </script>
 @endsection

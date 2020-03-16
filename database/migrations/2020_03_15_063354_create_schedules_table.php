@@ -17,7 +17,7 @@ class CreateSchedulesTable extends Migration
             $table->increments('id');
             $table->integer('Created_by');
             $table->date('student_sched');
-            $table->text('remarks')->nullable();
+            $table->date('student_schedEnd')->nullable();
             $table->string('status')->default('pending');
             $table->timestamps();
         });
