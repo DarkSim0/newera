@@ -237,7 +237,8 @@ a {
   @endif
 @endforeach
 <a href="{{url('/student_register')}}"></a>
-<a href="#t3"><li class="icon fa fa-rocket" id="tres"></li></a>
+<a href="{{url('/schedule_exam')}}"><li class="icon fa fa-rocket" id="tres"></li></a>
+<span><small>Schedule Exam</small></span>
 <a href="#t4"><li class="icon fa fa-dribbble" id="cuatro"></li></a>
 <a href="#t5"><li class="icon fa fa-plus-circle" id="cinco"></li></a>
 </ul>
@@ -260,7 +261,8 @@ a {
 <section class="icon fa fa-keyboard-o"><span class="title">Type</span></section>
 </div>
 <div class="page" id="p3">
-<section class="icon fa fa-rocket"><span class="title">Rocket</span></section>
+<section class="icon fa fa-rocket"><span class="title">Rocket</span>
+</section>
 </div>
 <div class="page" id="p4">
 <section class="icon fa fa-dribbble">

@@ -18,23 +18,31 @@ Schedule your exam
         @endif
         
         <div class="row col l12" >
-          
-    
             <div class="input-field col l12">
-                <input placeholder="" id="birthdate" value="{{ old('dob') }}" name="dob" type="text" class="datepicker">
-                <label for="birthdate">Start date</label>
+                <input placeholder="" id="schedate" value="{{ old('schedule_sched') }}" name="schedule_sched" type="text" class="datepicker">
+                <label for="birthdate">Start date  </label>
             </div>
+        <input type="hidden" name='schedule_schedEnd' value=""  >
             
         </div>
 
 
         <div>
             <a class="btn waves-effect waves-light left"  href="{{url('/')}}">Go Back</a>
-            <button class="btn waves-effect waves-light right" type="submit" name="action">
+            <button onclick="copyCat()" class="btn waves-effect waves-light right" type="submit" name="action">
                 <a type="submit" style="color:white;">Continue</a>
             <i class="material-icons right">send</i>
-            
         </div>
    
 </form>
+@endsection
+@section('scripts')
+    <script type="text/javascript" >
+        function copyCat(){
+            var str = document.getElementById("schedate").value;
+           
+        }
+        
+
+    </script>
 @endsection

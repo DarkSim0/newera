@@ -24,6 +24,8 @@ use App\schedules;
 
 use PDF;
 
+use Carbon\Carbon;
+
 
 
 class registrationController extends Controller
@@ -198,7 +200,8 @@ class registrationController extends Controller
     }
 
     public function schedule(){
-        return view('studentPage.schedule');
+        $date = Carbon::now();
+        return view('studentPage.schedule',compact('date'));
     }
 
     public function scheduleStore(Request $req){
@@ -209,7 +212,9 @@ class registrationController extends Controller
         $schedStudent = array(
             'student_sched' => $req->student_sched,
             'Created_by' =>Auth::user()->id,
-            'remarks' => $req->remarks,
+            'student_sched' => $req->student_sched,
+            'student_schedEnd' => $req->student_schedEnd,
+            'title' => Auth::user()->id.$date->year.$date->month.$date->hour.$date->minute,
         );
         schedules::create($schedStudent);
 
