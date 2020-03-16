@@ -205,6 +205,7 @@ class registrationController extends Controller
     }
 
     public function scheduleStore(Request $req){
+        $date = Carbon::now();
         $validation = $req->validate([
             'student_sched' => 'required'
         ]);

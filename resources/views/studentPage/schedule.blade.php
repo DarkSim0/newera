@@ -3,7 +3,7 @@
 Schedule your exam    
 @endsection
 @section('content')
-<form action="" method="POST">
+<form action="" name="schedForm" method="POST">
     @csrf    
         @if($errors->any())
         
@@ -18,18 +18,33 @@ Schedule your exam
         @endif
         
         <div class="row col l12" >
-            <div class="input-field col l12">
-                <input placeholder="" id="schedate" value="{{ old('schedule_sched') }}" name="schedule_sched" type="text" class="datepicker">
-                <label for="birthdate">Start date  </label>
+            <div class="input-field col l6">
+                <input placeholder="" id="sched" value="{{ old('schedule_sched') }}" name="student_sched" type="text" class="datepicker">
+                <label for="student_sched">Exam date</label>
             </div>
-        <input type="hidden" name='schedule_schedEnd' value=""  >
+            <div class="input-field col l6">
+                <label>
+                    <input type="checkbox" name="confirm"  onclick="copyCat(this.form)" >
+                    <span>Click if you agree</span>
+                  </label>
+            </div>
+            <div class="row col l12">
+                <div class="input-field col l6">
+                    <input type="text" id="schedEnd" name="student_schedEnd" readonly>    
+                </div>    
+                <div class="input-field col l6">
+                    <label for="student_schedEnd">Confirm date</label>
+                </div>  
+               
+            </div>
             
+           
         </div>
 
 
         <div>
             <a class="btn waves-effect waves-light left"  href="{{url('/')}}">Go Back</a>
-            <button onclick="copyCat()" class="btn waves-effect waves-light right" type="submit" name="action">
+            <button class="btn waves-effect waves-light right" type="submit" name="action">
                 <a type="submit" style="color:white;">Continue</a>
             <i class="material-icons right">send</i>
         </div>
@@ -38,11 +53,10 @@ Schedule your exam
 @endsection
 @section('scripts')
     <script type="text/javascript" >
-        function copyCat(){
-            var str = document.getElementById("schedate").value;
-           
+        function copyCat(copy){
+            if(copy.confirm.checked == true){
+                copy.student_schedEnd.value = copy.student_sched.value;
+            }
         }
-        
-
     </script>
 @endsection
