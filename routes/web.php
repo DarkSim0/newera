@@ -25,3 +25,4 @@ Route::get('/student_register/{id}','registrationController@printform');
 Route::get('/admin','AdminPageController@index');
 
 Route::get('/schedule_exam','registrationController@schedule');
+Route::post('/schedule_exam','registrationController@scheduleStore');

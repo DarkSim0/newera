@@ -41,7 +41,14 @@
           <li><a href="startup-postcard.html">Postcards</a></li>
         </ul>
 
-        <a href="#" data-activates="slide-out" class="button-collapse ag"><i class="material-icons black-text">menu</i></a>
+        <a class="waves-effect waves-light btn-flat " href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                 {{ __('Logout') }}
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+             </a><i class="material-icons black-text">menu</i></a>
       </div>
     </nav>
     <ul id="slide-out" class="side-nav">

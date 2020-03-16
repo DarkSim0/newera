@@ -228,12 +228,13 @@ a {
 <div class="ct" id="t5">
 <ul id="menu">
 @foreach($checker as $chck)
-  @if($chck->Created_by == Auth::user()->id  )
-    <a target="_blank" href="{{url('/student_register/'.$chck->Created_by)}}"><li class="icon fa fa-keyboard-o" id="dos"></li></a>
+  @if(Auth::user()->register['Created_by'] == ''  )
+  <a  href="{{url('/student_register')}}"><li class="icon fa fa-bolt" id="uno"></li></a>
+  <span><small>Pre-register</small></span>
+    
+    @else 
+    <a target="_blank" href="{{url('/student_register/'.Auth::user()->id)}}"><li class="icon fa fa-keyboard-o" id="dos"></li></a>
     <span><small>Print Registration Form</small></span>
-    @elseif($chck->Created_by == '') ) 
-    <a  href="{{url('/student_register')}}"><li class="icon fa fa-bolt" id="uno"></li></a>
-    <span><small>Pre-register</small></span>
   @endif
 @endforeach
 <a href="{{url('/student_register')}}"></a>
