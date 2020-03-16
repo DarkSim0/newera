@@ -7,15 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="">
-    <title>Dashboard - Admin</title>
+    <title>Neu - {{Auth::user()->level['access_level']}}</title>
     <link href="{{asset('assets/css/materialize/css/datatables.min.css')}}" rel="stylesheet">
     <!-- Fullcalendar-->
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.css" rel="stylesheet"> --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.css" rel="stylesheet">
     <!-- Materialize-->
     <link href="{{asset('assets/css/materialize/css/materializeV2.min.css')}}" rel="stylesheet">
     <!-- Material Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <style>
+       #neulogo{
+            height: 50px;
+            width: 50px;
+            margin-left: 120px;
+            margin-top: 5px;
+            position: absolute;
+        }
+    </style>
 </head>
   <body class="has-fixed-sidenav">
     <header>
@@ -31,7 +39,9 @@
         </nav>
       </div>
       <ul id="sidenav-left" class="sidenav sidenav-fixed">
-        <li><a href="/pages/admin-dashboard" class="logo-container">Admin<i class="material-icons left">spa</i></a></li>
+        <li><a href="/pages/admin-dashboard" class="logo-container">{{Auth::user()->name}}<img id="neulogo" src="{{
+          asset('/images/neu_logo.pn')
+          }}" alt="neu" srcset=""></a></li>
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
             <li class="bold waves-effect active"><a class="collapsible-header">Pages<i class="material-icons chevron">chevron_left</i></a>
@@ -116,7 +126,7 @@
       <div id="chat-dropdown" class="dropdown-content dropdown-tabbed">
         <ul class="tabs tabs-fixed-width">
           <li class="tab col s3"><a href="#settings">Settings</a></li>
-          <li class="tab col s3"><a href="#friends" class="active">Friends</a></li>
+          <li class="tab col s3"><a href="#friends" class="active">Actions</a></li>
         </ul>
         <div id="settings" class="col s12">
           <div class="settings-group">
@@ -136,17 +146,17 @@
         </div>
         <div id="friends" class="col s12">
           <ul class="collection flush">
+     
             <li class="collection-item avatar">
-              <div class="badged-circle online"><img src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/portrait1.jpg?100" alt="avatar" class="circle"></div><span class="title">Jane Doe</span>
-              <p class="truncate">Lo-fi you probably haven't heard of them</p>
-            </li>
-            <li class="collection-item avatar">
-              <div class="badged-circle"><img src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/portrait2.jpg?100" alt="avatar" class="circle"></div><span class="title">John Chang</span>
-              <p class="truncate">etsy leggings raclette kickstarter four dollar toast</p>
-            </li>
-            <li class="collection-item avatar">
-              <div class="badged-circle"><img src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/portrait3.jpg?100" alt="avatar" class="circle"></div><span class="title">Lisa Simpson</span>
-              <p class="truncate">Raw denim fingerstache food truck chia health goth synth</p>
+              
+              <p class="truncate"><a class="waves-effect waves-light btn-flat " href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                 {{ __('Logout') }}
+             </a></p>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
             </li>
           </ul>
         </div>
@@ -197,7 +207,7 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.js"></script>
+<script src="{{asset('assets/js/fullcalendar.js')}}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
 
 
