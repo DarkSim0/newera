@@ -18,11 +18,11 @@ Schedule your exam
         @endif
         
         <div class="row col l12" >
-            <div class="input-field col l6">
+            <div class="input-field col m6">
                 <input placeholder="" id="sched" value="{{ old('schedule_sched') }}" name="student_sched" type="text" class="datepicker">
                 <label for="student_sched">Exam date</label>
             </div>
-            <div class="input-field col l6">
+            <div class="input-field col m6">
                 <label>
                     <input type="checkbox" name="confirm"  onclick="copyCat(this.form)" >
                     <span>Click if you agree to the date of exam</span>
@@ -31,21 +31,23 @@ Schedule your exam
            
         </div>
         <div class="row col l12">
-            <div class="col l6">
+            <div class="col m6">
                 <input type="text" id="schedEnd" name="student_schedEnd" readonly>    
             </div>    
-            <div class="input-field col l6">
+            <div class="input-field col m6">
                 <label for="student_schedEnd">Confirmed date</label>
             </div>  
            
         </div>
 
-
-        <div>
+        <div class="row col l12">
             <a class="btn waves-effect waves-light left"  href="{{url('/')}}">Go Back</a>
             <button class="btn waves-effect waves-light right" type="submit" name="action">
                 <a type="submit" style="color:white;">Continue</a>
             <i class="material-icons right">send</i>
+        </div>
+        <div>
+        
         </div>
    
 </form>

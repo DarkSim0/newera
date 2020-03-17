@@ -218,7 +218,7 @@ class registrationController extends Controller
             'title' => Auth::user()->id.$date->year.$date->month.$date->hour.$date->minute,
         );
         schedules::create($schedStudent);
-
+        return redirect('/');
         Session::flash('success','You have successfully reserve a slot');
 
     }

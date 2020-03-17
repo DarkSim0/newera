@@ -57,16 +57,22 @@
         </script>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var elems = document.querySelectorAll('.datepicker');
-                var instances = M.Datepicker.init(elems, options);
-            });
+            // document.addEventListener('DOMContentLoaded', function() {
+            //     var elems = document.querySelectorAll('.datepicker');
+            //     var instances = M.Datepicker.init(elems, options);
+            // });
 
-            // Or with jQuery
+            // // Or with jQuery
 
-            $(document).ready(function() {
-                $('.datepicker').datepicker();
-            });
+            // $(document).ready(function() {
+            //     $('.datepicker').datepicker();
+            // });
+            
+           const Calendar = document.querySelector('.datepicker');
+           M.Datepicker.init(Calendar,{
+                format:'yyyy-mm-dd',
+           });
+
         </script>
 
 
