@@ -25,19 +25,18 @@ Schedule your exam
             <div class="input-field col l6">
                 <label>
                     <input type="checkbox" name="confirm"  onclick="copyCat(this.form)" >
-                    <span>Click if you agree</span>
+                    <span>Click if you agree to the date of exam</span>
                   </label>
-            </div>
-            <div class="row col l12">
-                <div class="input-field col l6">
-                    <input type="text" id="schedEnd" name="student_schedEnd" readonly>    
-                </div>    
-                <div class="input-field col l6">
-                    <label for="student_schedEnd">Confirm date</label>
-                </div>  
-               
-            </div>
-            
+            </div> 
+           
+        </div>
+        <div class="row col l12">
+            <div class="col l6">
+                <input type="text" id="schedEnd" name="student_schedEnd" readonly>    
+            </div>    
+            <div class="input-field col l6">
+                <label for="student_schedEnd">Confirmed date</label>
+            </div>  
            
         </div>
 
