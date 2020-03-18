@@ -2,6 +2,10 @@
 @section('headers')
 Schedule your exam    
 @endsection
+@section('custom_style')
+
+<link rel="stylesheet" href="{{asset('assets/css/fullcalendar.css')}}">
+@endsection
 @section('content')
 <form action="" name="schedForm" method="POST">
     @csrf    
@@ -16,7 +20,9 @@ Schedule your exam
             </div>
          
         @endif
-        
+        <div class="panel-body">
+           {!! $calendar->calendar() !!}
+        </div>
         <div class="row col l12" >
             <div class="input-field col m6">
                 <input placeholder="" id="sched" value="{{ old('schedule_sched') }}" name="student_sched" type="text" class="datepicker">
@@ -53,6 +59,9 @@ Schedule your exam
 </form>
 @endsection
 @section('scripts')
+    {!! $calendar->script() !!}
+    <script src="{{asset('assets/js/moment.js')}}" ></script>
+    <script src="{{asset('assets/js/fullcalendar.js')}}" ></script>
     <script type="text/javascript" >
         function copyCat(copy){
             if(copy.confirm.checked == true){
@@ -60,4 +69,5 @@ Schedule your exam
             }
         }
     </script>
+ 
 @endsection

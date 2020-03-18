@@ -26,6 +26,8 @@ use PDF;
 
 use Carbon\Carbon;
 
+use Calendar;
+
 
 
 class registrationController extends Controller
@@ -200,8 +202,31 @@ class registrationController extends Controller
     }
 
     public function schedule(){
-        $date = Carbon::now();
-        return view('studentPage.schedule',compact('date'));
+        {
+            $events = [];
+            $data = schedules::all();
+            if($data->count())
+            {
+                foreach ($data as $key => $value) 
+                {
+                    $events[] = Calendar::event(
+                        $value->title,
+                        true,
+                        new \DateTime($value->student_sched),
+                        new \DateTime($value->student_schedEnd.'+1 day'),
+                        null,
+                        // Add color
+                        [
+                            'color' => '#000000',
+                            'textColor' => '#008000',
+                            //'url' => 'pass route',
+                        ]
+                    );
+                }
+        }
+        $calendar = Calendar::addEvents($events);
+        return view('studentPage.schedule',compact('calendar'));
+        }
     }
 
     public function scheduleStore(Request $req){
