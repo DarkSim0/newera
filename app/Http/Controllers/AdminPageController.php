@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use Gate;
 
+use App\schedules;
+
+use App\studentRegist;
+
 class AdminPageController extends Controller
 {
     /**
@@ -20,11 +24,12 @@ class AdminPageController extends Controller
 
     public function index()
     {   
+        $listSched = studentRegist::all();
         if(!Gate::allows('isAdmin')){
             abort(404,"Sorry You can't access this page");
         }
         
-        return view('adminPage.index');
+        return view('adminPage.index',compact('listSched'));
     }
 
     /**

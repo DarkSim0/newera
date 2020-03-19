@@ -21,4 +21,8 @@ class schedules extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function studentSchedule(){
+        return $this->belongsTo(studentRegist::class,'Created_by');
+    }
 }

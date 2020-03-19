@@ -23,6 +23,13 @@
             margin-top: 5px;
             position: absolute;
         }
+        #logofooter{
+            height: 150px;
+            width: 150px;
+            margin-left: 5px;
+            margin-top: 5px;
+            position: absolute;
+        }
     </style>
 </head>
   <body class="has-fixed-sidenav">
@@ -40,7 +47,7 @@
       </div>
       <ul id="sidenav-left" class="sidenav sidenav-fixed">
         <li><a href="/pages/admin-dashboard" class="logo-container">{{Auth::user()->name}}<img id="neulogo" src="{{
-          asset('/images/neu_logo.pn')
+          asset('/images/neu_logo.png')
           }}" alt="neu" srcset=""></a></li>
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
@@ -170,8 +177,7 @@
   <div class="container">
     <div class="row">
       <div class="col s6 m3">
-        <img class="materialize-logo" src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/materialize-logo.png?100" alt="Materialize">
-        <p>Made with love by Materialize.</p>
+        <img class="materialize-logo" id="logofooter" src="{{asset('images/neu_logo.png')}}" alt="Materialize">
       </div>
       <div class="col s6 m3">
         <h5>About</h5>

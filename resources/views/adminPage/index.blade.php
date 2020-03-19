@@ -4,7 +4,7 @@
     <div class="col s12">
     <h2>Dashboard</h2>
     </div>
-    <div class="col l3 m6 s12">
+    {{-- <div class="col l3 m6 s12">
 
       <div class="card">
         <div class="card-stacked">
@@ -24,8 +24,8 @@
         </div>
       </div>
 
-    </div>
-    <div class="col l3 m6 s12">
+    </div> --}}
+    {{-- <div class="col l3 m6 s12">
 
       <div class="card">
         <div class="card-stacked">
@@ -122,33 +122,28 @@
         </div>
       </div>
 
-    </div>
+    </div> --}}
 
-    <div class="col m6 s12">
+    <div class="col  s12">
       <div class="card">
         <div class="card-content">
-          <span class="card-title">Updates</span>
+          <span class="card-title">Pending Request</span>
           <ul class="badge-updates">
+            @foreach($listSched as $ld) 
             <li>
-              <span class="new badge red" data-badge-caption="refund"></span>
-              <span class="message">45$ refunded to Alan Chang</span>
-              <span class="time">14 minutes ago</span>
+              @if(Auth::user()->sched['status'] == 'pending')
+              <span class="new badge red" data-badge-caption="{{Auth::user()->sched['status']}}"></span>
+              {{ Auth::user()->register['lname'] }}
+              @else
+              <span class="new badge green" data-badge-caption="accept"></span>
+              @endif
             </li>
-            <li>
-              <span class="new badge green" data-badge-caption="purchase"></span>
-              <span class="message">45$ from Alan Chang</span>
-              <span class="time">14 minutes ago</span>
-            </li>
-            <li>
-              <span class="new badge red" data-badge-caption="refund"></span>
-              <span class="message">45$ refunded to Alan Chang</span>
-              <span class="time">14 minutes ago</span>
-            </li>
+            @endforeach
           </ul>
         </div>
       </div>
     </div>
-
+{{-- 
     <div class="col m6 s12">
       <div id="tab-legend-chart-card" class="card primary-color">
         <div class="card-content">
@@ -169,7 +164,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
 <!--     <div class="col m6 s12">
       <div class="card horizontal">
@@ -212,7 +207,7 @@
 
     </div> -->
 
-    <div class="col m6 s12">
+    {{-- <div class="col m6 s12">
       <div class="card">
         <div class="card-content">
           <span class="card-title">Devices</span>
@@ -246,7 +241,7 @@
       <div class="card">
         <div id='calendar'></div>
       </div>
-    </div>
+    </div> --}}
 
     <div class="col s12">
       <div class="card">

@@ -41,8 +41,8 @@ class registrationController extends Controller
     {
         
         $checker = studentRegist::all();
-        
-        return view ('studentPage.dashboard',compact('checker'));
+        $data = schedules::where('status','like','%pending%')->get();
+        return view ('studentPage.dashboard',compact('checker','data'));
     }
 
     public function index()
@@ -204,7 +204,7 @@ class registrationController extends Controller
     public function schedule(){
         {
             $events = [];
-            $data = schedules::all();
+            $data = schedules::where('status','!=','pending')->get();
             if($data->count())
             {
                 foreach ($data as $key => $value) 

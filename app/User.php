@@ -42,7 +42,7 @@ class User extends Authenticatable //implements MustVerifyEmail
     }
 
     public function sched(){
-        return $this->hasOne('App\schedules');
+        return $this->hasOne(schedules::class,'id');
     }
 
     public function level(){

@@ -256,6 +256,10 @@ a {
 @else 
   Admin
 @endif 
+
+@foreach($data as $d)
+  <p>{{$d->title}}</p>
+@endforeach
 </span></section>
 </div>
 <div class="page" id="p2">
