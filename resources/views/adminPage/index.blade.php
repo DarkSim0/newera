@@ -127,15 +127,18 @@
     <div class="col  s12">
       <div class="card">
         <div class="card-content">
-          <span class="card-title">Pending Request</span>
+          <span class="card-title">Student List Request</span>
           <ul class="badge-updates">
             @foreach($listSched as $ld) 
             <li>
               @if(Auth::user()->sched['status'] == 'pending')
               <span class="new badge red" data-badge-caption="{{Auth::user()->sched['status']}}"></span>
-              {{ Auth::user()->register['lname'] }}
+              <span class="time">{{$ld->created_at->diffForHumans()}}</span>
+              {{ Auth::user()->register['lname'].', '.Auth::user()->register['fname'].' '.Auth::user()->register['mname'] }}
               @else
-              <span class="new badge green" data-badge-caption="accept"></span>
+              <span class="new badge green" data-badge-caption="accepted"></span>
+              <span class="time">{{$ld->updated_at->diffForHumans()}}</span>
+              {{ Auth::user()->register['lname'].', '.Auth::user()->register['fname'].' '.Auth::user()->register['mname'] }}
               @endif
             </li>
             @endforeach
