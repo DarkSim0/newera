@@ -28,7 +28,7 @@ class AdminPageController extends Controller
 
     public function index()
     {   
-        $listSched = studentRegist::paginate(1);
+        $listSched = studentRegist::paginate(10);
         if(!Gate::allows('isAdmin')){
             abort(404,"Sorry You can't access this page");
         }
