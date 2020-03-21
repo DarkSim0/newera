@@ -10,6 +10,10 @@ use App\schedules;
 
 use App\studentRegist;
 
+use Illuminate\Support\Facades\DB;
+
+use Carbon\Carbon;
+
 class AdminPageController extends Controller
 {
     /**

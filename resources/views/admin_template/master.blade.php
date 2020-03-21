@@ -10,7 +10,6 @@
     <title>Neu - {{Auth::user()->level['access_level']}}</title>
     <link href="{{asset('assets/css/materialize/css/datatables.min.css')}}" rel="stylesheet">
     <!-- Fullcalendar-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.css" rel="stylesheet">
     <!-- Materialize-->
     <link href="{{asset('assets/css/materialize/css/materializeV2.min.css')}}" rel="stylesheet">
     <!-- Material Icons-->
@@ -173,7 +172,7 @@
   @yield('content')
   {{-- end here --}}
 </div>
-    </main><footer class="page-footer">
+</main><footer class="page-footer">
   <div class="container">
     <div class="row">
       <div class="col s6 m3">
@@ -207,14 +206,14 @@
   </div>
 </footer><!-- Scripts -->
 <script src="{{asset('assets/js/jquery.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+<script src="{{asset('assets/js/moment.js')}}"></script>
 
 <!-- External libraries -->
 
 
 
 <script src="{{asset('assets/js/fullcalendar.js')}}"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+{{-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script> --}}
 
 
 <!-- Initialization script -->

@@ -62,5 +62,9 @@ class studentRegist extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function scheds(){
+        return $this->hasOne(schedules::class,'Created_by');
+    }
+
 
 }

@@ -38,8 +38,7 @@ class registrationController extends Controller
     }
 
     public function dash()
-    {
-        
+    {  
         $checker = studentRegist::all();
         $data = schedules::where('status','like','%pending%')->get();
         return view ('studentPage.dashboard',compact('checker','data'));

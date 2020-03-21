@@ -131,23 +131,26 @@
           <ul class="badge-updates">
             @foreach($listSched as $ld) 
             <li>
-              @if(Auth::user()->sched['status'] == 'pending')
-              <span class="new badge red" data-badge-caption="{{Auth::user()->sched['status']}}"></span>
+              <span class="new badge" data-badge-caption="{{$ld->scheds['status']}}"></span>
               <span class="time">{{$ld->created_at->diffForHumans()}}</span>
-              {{ Auth::user()->register['lname'].', '.Auth::user()->register['fname'].' '.Auth::user()->register['mname'] }}
-              @else
-              <span class="new badge green" data-badge-caption="accepted"></span>
-              <span class="time">{{$ld->updated_at->diffForHumans()}}</span>
-              {{ Auth::user()->register['lname'].', '.Auth::user()->register['fname'].' '.Auth::user()->register['mname'] }}
-              @endif
+              {{ $ld->lname.', '.$ld->fname.' '.$ld->mname }}
+              {{-- {{ Auth::user()->register['lname'].', '.Auth::user()->register['fname'].' '.Auth::user()->register['mname'] }} --}}
             </li>
+            
             @endforeach
           </ul>
-          <div class="btn waves-effect waves-light" type="submit" name="action">
-            {{$listSched->links()}}
-          </div>
+      
+           
           
+         
         </div>
+      </div>
+    </div>
+    <div class="col s12">
+      <div class="pagination">
+      <center> {{$listSched->onEachSide(2)->links()}}</center>
+  
+ 
       </div>
     </div>
 {{-- 
