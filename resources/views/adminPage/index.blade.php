@@ -143,6 +143,10 @@
             </li>
             @endforeach
           </ul>
+          <div class="btn waves-effect waves-light" type="submit" name="action">
+            {{$listSched->links()}}
+          </div>
+          
         </div>
       </div>
     </div>
