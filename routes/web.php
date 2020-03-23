@@ -15,14 +15,16 @@
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+//students page
 Route::get('/','registrationController@dash');
 Route::get('/student_register','registrationController@index');
 Route::post('/student_register','registrationController@store');
 Route::post('/student_contact/autocomplete','registrationController@autoComplete')->name('autocomplete.search');
 Route::get('/student_register/{id}','registrationController@printform');
-
-Route::get('/admin','AdminPageController@index');
-
 Route::get('/schedule_exam','registrationController@schedule');
 Route::post('/schedule_exam','registrationController@scheduleStore');
+//admin page
+Route::get('/admin','AdminPageController@index');
+Route::get('/admin/confirm/{id}','AdminPageController@edit');
+
+

@@ -130,7 +130,7 @@
           <span class="card-title">Student List</span>
           <ul class="badge-updates ">
             @foreach($listSched as $ld) 
-            <li class="collection" ><a href="" class="collection-item">
+            <li class="collection" ><a href="{{url('/admin/confirm/'.$ld->enrollID)}}" class="collection-item">
               
               @if($ld->scheds['status']=='pending')
                 <span style="text-transform: uppercase;" class="new badge red " data-badge-caption="{{$ld->scheds['status']}}"></span>

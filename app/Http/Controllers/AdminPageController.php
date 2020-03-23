@@ -77,6 +77,14 @@ class AdminPageController extends Controller
     public function edit($id)
     {
         //
+        $confirm = studentRegist::find($id);
+        if(!Gate::allows('isAdmin')){
+            abort(404,"Sorry You can't access this page");
+        }
+        
+        return view('adminPage.edit',compact('confirm'));
+
+
     }
 
     /**
