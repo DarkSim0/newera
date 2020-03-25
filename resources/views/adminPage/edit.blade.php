@@ -14,17 +14,18 @@
         <span class="card-title">Student Status</span>
         <p>{{$confirm->scheds['status']}}</p>
         <div class="divider"></div>
-        <form action="" method="post">
+        <form action="{{ route('update.status',$confirm->enrollID) }}" method="post">.
+          @method('PATCH')
+          @csrf
           <div class="card-content">
             <div class="chat-wrapper">
-              <select name="" id="">
-                <option value="">Accept</option>
-                <option value="">Reject</option>
+              <select name="status" id="">
+                <option value="accept">Accept</option>
+                <option value="reject">Reject</option>
               </select> &nbsp;
               <button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
             </div>
             <div class="input-form chat-wrapper col l6 s12">
-              
             </div>
           </div>
         </form>
@@ -40,7 +41,7 @@
         <span class="card-title">{{$confirm->lname.', '.$confirm->mname.' '.$confirm->fname}}</span>
         <p>{{$confirm->EntryStatus}}</p>
       </div>
-      <ul class="collection flush">
+      <ul class="collection flush ">
         <li class="collection-item avatar ">
        
           <span class="title">Gender</span>
@@ -73,6 +74,7 @@
           <p class="truncate">{{$confirm->created_at->diffForHumans()}}</p>
         </li>
       </ul>
+     
     </div>
 
   </div> 

@@ -1,8 +1,13 @@
 @extends('admin_template.master')
 @section('content')
 <div class="masonry row">
+  @if(session()->get('success'))
+  <div class="alert alert-success">
+    {{ session()->get('success') }}  
+  </div><br />
+@endif
     <div class="col s12">
-    <h2>Dashboard</h2>
+      <h2>Dashboard</h2>
     </div>
     {{-- <div class="col l3 m6 s12">
 
@@ -135,7 +140,7 @@
               @if($ld->scheds['status']=='pending')
                 <span style="text-transform: uppercase;" class="new badge red " data-badge-caption="{{$ld->scheds['status']}}"></span>
               @else
-                <span style="text-transform: uppercase;" class="new badge" data-badge-caption="{{$ld->scheds['status']}}"></span>
+                <span style="text-transform: uppercase;" class="new badge" data-badge-caption="Accepted"></span>
               @endif
               <span class="time">{{$ld->created_at->diffForHumans()}} </span>
               {{ $ld->lname.', '.$ld->fname.' '.$ld->mname }} 

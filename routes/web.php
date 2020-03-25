@@ -26,5 +26,6 @@ Route::post('/schedule_exam','registrationController@scheduleStore');
 //admin page
 Route::get('/admin','AdminPageController@index');
 Route::get('/admin/confirm/{id}','AdminPageController@edit');
+Route::patch('/admin/confirm/{id}','AdminPageController@update')->name('update.status');
 
 

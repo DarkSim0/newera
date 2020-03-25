@@ -97,6 +97,14 @@ class AdminPageController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validate = $request->validate([
+            'status' => 'required',
+        ]);
+        $update =  schedules::find($id);
+        $update->status = $request->get('status');
+        $update->save();
+       
+        return redirect('/admin')->with('success', 'Student record successfully updated');
     }
 
     /**
