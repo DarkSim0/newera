@@ -14,6 +14,7 @@
     <link href="{{asset('assets/css/materialize/css/materializeV2.min.css')}}" rel="stylesheet">
     <!-- Material Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    @yield('style')
     <style>
        #neulogo{
             height: 50px;
@@ -218,5 +219,6 @@
 
 <!-- Initialization script -->
 <script src="{{asset('assets/js/dashboard.js')}}"></script>
+@yield('scripts')
   </body>
 </html>

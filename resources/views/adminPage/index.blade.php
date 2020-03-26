@@ -133,21 +133,52 @@
       <div class="card">
         <div class="card-content">
           <span class="card-title">Student List</span>
+          <form action="{{url('/admin/filter')}}" method="get">
+            <div class="input-field col s12">
+              <div class="col s10">
+                <i class="material-icons prefix">textsms</i>
+                <input type="text" name="filter" id="studsearch"  autocomplete="off">
+                <label for="autocomplete-input" >Search Student</label>
+                <div id="listStud" ></div> 
+              </div>
+            
+              <div class="col s2">
+                  <button type="submit" class="btn waves-effect" >GO</button>
+              </div>
+              
+            </div>
+      
+          </form>
+
           <ul class="badge-updates ">
             @foreach($listSched as $ld) 
             <li class="collection" ><a href="{{url('/admin/confirm/'.$ld->enrollID)}}" class="collection-item">
               
               @if($ld->scheds['status']=='pending')
                 <span style="text-transform: uppercase;" class="new badge red " data-badge-caption="{{$ld->scheds['status']}}"></span>
-              @else
+              @elseif($ld->scheds['status']=='accept')
                 <span style="text-transform: uppercase;" class="new badge" data-badge-caption="Accepted"></span>
+              @else
+              <span style="text-transform: uppercase;" class="new badge red" data-badge-caption="Rejected"></span>
               @endif
               <span class="time">{{$ld->created_at->diffForHumans()}} </span>
               {{ $ld->lname.', '.$ld->fname.' '.$ld->mname }} 
-            </a>
+              </a>
+           
             </li>
             @endforeach
           </ul>
+          {{-- @if($listSched->enrollID > '')
+          <ul class="badge-updates ">
+          
+            <li class="collection" ><a href="#" class="collection-item">
+              
+             <center><p>sorry no data available</p></center>
+            </a>
+            </li>
+            
+          </ul>
+          @endif --}}
         </div>
       </div>
     </div>
@@ -256,4 +287,33 @@
       </div>
     </div> --}}
   </div>
+@endsection
+
+@section('scripts')
+<script >
+        
+  $('#studsearch').keyup(function(){ 
+      var query = $(this).val();
+      if(query != '')
+      {
+      var _token = $('input[name="_token"]').val();
+      $.ajax({
+      url:"{{ route('admin.search') }}",
+      method:"POST",
+      data:{query:query, _token:_token},
+      success:function(data){
+      $('#listStud').fadeIn();  
+                  $('#listStud').html(data);
+      }
+      });
+      }
+  });
+
+  $(document).on('click', 'li', function(){  
+            $('#studsearch').val($(this).text());  
+            $('#listStud').fadeOut();  
+        });  
+
+ 
+</script>
 @endsection

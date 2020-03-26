@@ -10,9 +10,11 @@ use App\schedules;
 
 use App\studentRegist;
 
-use Illuminate\Support\Facades\DB;
+use DB;
 
 use Carbon\Carbon;
+
+
 
 class AdminPageController extends Controller
 {
@@ -116,5 +118,33 @@ class AdminPageController extends Controller
     public function destroy($id)
     {
         //
+    }
+    //search and filters
+    public function autoComplete(Request $req)
+    {
+        if($req->get('query'))
+        {
+         $query = $req->get('query');
+         $data = DB::table('student_register')
+           ->where('lname', 'LIKE', "%{$query}%")
+           ->orWhere('fname', 'LIKE', "%{$query}%")
+           ->take(3)
+           ->get();
+         $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
+         foreach($data as $row)
+         {
+          $output .= '
+          <li><a href="#">'.$row->lname.'</a></li>
+          ';
+         }
+         $output .= '</ul>';
+         echo $output;
+        }
+    }
+
+    public function filter(Request $req){
+        $filter = $req->get('filter');
+        $listSched = studentRegist::where('lname','like','%'.$filter.'%')->paginate(10);
+        return view('adminPage.index',compact('listSched'));
     }
 }
