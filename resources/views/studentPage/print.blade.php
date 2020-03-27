@@ -24,8 +24,8 @@
 <body>
 <div class="container">
     <img id="neu_logo" src="{{asset('/images/neu_logo.png')}}" alt="image">
-    <center><h3 class="uk-article-title" >Registration Form</h3></center>
-    <center><h4 class="uk-article-meta" style="margin-top:-20px; margin-bottom:-20px;" >sample text here</h4></center>
+    <center><h3 class="uk-article-title" >REGISTRATION FORM</h3></center>
+    <center><h4 class="uk-article-meta" style="margin-top:-20px; margin-bottom:-20px;" >NEW ERA UNIVERSITY</h4></center>
     <br>
     <div class="">
         <div class="">
