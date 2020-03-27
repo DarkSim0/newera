@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design Bootstrap</title>
+  <title>NEU Student Dashboard</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('assets/css/carousel.css')}}">
   <!-- Bootstrap core CSS -->
@@ -15,19 +15,11 @@
   <!-- Your custom styles (optional) -->
   <link href="{{asset('assets/css/materializeModified/c3.css')}}" rel="stylesheet">
   <style>
-
-    .map-container{
-overflow:hidden;
-padding-bottom:56.25%;
-position:relative;
-height:0;
-}
-.map-container iframe{
-left:0;
-top:0;
-height:100%;
-width:100%;
-position:absolute;
+    footer {
+    clear: both;
+    position: relative;
+    height: 100px;
+    margin-top: -200px;
 }
   </style>
 </head>
@@ -42,8 +34,8 @@ position:absolute;
       <div class="container-fluid">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
-          <strong class="blue-text">MDB</strong>
+        <a class="navbar-brand waves-effect" href="{{url('https://www.neu.edu.ph/main/')}}" target="_blank">
+          <strong class="blue-text">NEU</strong>
         </a>
 
         <!-- Collapse -->
@@ -58,23 +50,11 @@ position:absolute;
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link waves-effect" href="#">Home
+              <a class="nav-link waves-effect" href="{{url('/home')}}">{{Auth::user()->name}}
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">About
-                MDB</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
-                target="_blank">Free
-                download</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Free
-                tutorials</a>
-            </li>
+          
           </ul>
 
           <!-- Right -->
@@ -90,9 +70,15 @@ position:absolute;
               </a>
             </li>
             <li class="nav-item">
-              <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded waves-effect"
-                target="_blank">
-                <i class="fab fa-github mr-2"></i>MDB GitHub
+          
+              <a href="{{ route('logout') }}" class="nav-link border border-light rounded waves-effect"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+        
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+      </form>
+      {{ __('LOG OUT') }}
               </a>
             </li>
           </ul>
@@ -106,22 +92,29 @@ position:absolute;
     <!-- Sidebar -->
     <div class="sidebar-fixed position-fixed">
 
-      <a class="logo-wrapper waves-effect">
-        <img src="https://mdbootstrap.com/img/logo/mdb-email.png" class="img-fluid" alt="">
+      <a class="logo-wrapper waves-effect" style="margin-bottom:-20px" >
+        <h2>{{Auth::user()->level['access_level']}}</h2>
       </a>
 
       <div class="list-group list-group-flush">
+      
         <a href="#" class="list-group-item active waves-effect">
-          <i class="fas fa-chart-pie mr-3"></i>Dashboard
+         Dashboard
         </a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect">
-          <i class="fas fa-user mr-3"></i>Profile</a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect">
-          <i class="fas fa-table mr-3"></i>Tables</a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect">
-          <i class="fas fa-map mr-3"></i>Maps</a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect">
-          <i class="fas fa-money-bill-alt mr-3"></i>Orders</a>
+        @if(Auth::user()->register['Created_by'] == ''   )
+          <a class="list-group-item list-group-item-action waves-effect" href="{{url('/student_register')}}"> Pre-register</a>
+        @endif
+        @foreach($checker as $chck)
+            @if(Auth::user()->id == $chck->Created_by)
+            <a target="_blank" class="list-group-item list-group-item-action waves-effect"  href="{{url('/student_register/'.Auth::user()->id)}}">Print Registration Form</a>
+          @endif
+        @endforeach
+        @if(Auth::user()->register['Created_by'] == '')
+         <a href="#" class="list-group-item list-group-item-action waves-effect"></a>
+        @else
+        <a href="{{url('/schedule_exam')}}" class="list-group-item list-group-item-action waves-effect">
+          Schedule Exam</a>
+        @endif
       </div>
 
     </div>
@@ -141,19 +134,8 @@ position:absolute;
         <div class="card-body d-sm-flex justify-content-between">
 
           <h4 class="mb-2 mb-sm-0 pt-1">
-            <a href="https://mdbootstrap.com/docs/jquery/" target="_blank">Home Page</a>
-            <span>/</span>
-            <span>Dashboard</span>
+            <a href="#" target="_blank">Welcome Student</a>
           </h4>
-
-          <form class="d-flex justify-content-center">
-            <!-- Default input -->
-            <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
-            <button class="btn btn-primary btn-sm my-0 p" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-
-          </form>
 
         </div>
 
@@ -161,203 +143,7 @@ position:absolute;
       <!-- Heading -->
 
       <!--Grid row-->
-      <div class="row wow fadeIn">
-
-        <!--Grid column-->
-        <div class="col-md-9 mb-4">
-
-          <!--Card-->
-          <div class="card">
-
-            <!--Card content-->
-            <div class="card-body">
-
-              <canvas id="myChart"></canvas>
-
-            </div>
-
-          </div>
-          <!--/.Card-->
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-md-3 mb-4">
-
-          <!--Card-->
-          <div class="card mb-4">
-
-            <!-- Card header -->
-            <div class="card-header text-center">
-              Pie chart
-            </div>
-
-            <!--Card content-->
-            <div class="card-body">
-
-              <canvas id="pieChart"></canvas>
-
-            </div>
-
-          </div>
-          <!--/.Card-->
-
-          <!--Card-->
-          <div class="card mb-4">
-
-            <!--Card content-->
-            <div class="card-body">
-
-              <!-- List group links -->
-              <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action waves-effect">Sales
-                  <span class="badge badge-success badge-pill pull-right">22%
-                    <i class="fas fa-arrow-up ml-1"></i>
-                  </span>
-                </a>
-                <a class="list-group-item list-group-item-action waves-effect">Traffic
-                  <span class="badge badge-danger badge-pill pull-right">5%
-                    <i class="fas fa-arrow-down ml-1"></i>
-                  </span>
-                </a>
-                <a class="list-group-item list-group-item-action waves-effect">Orders
-                  <span class="badge badge-primary badge-pill pull-right">14</span>
-                </a>
-                <a class="list-group-item list-group-item-action waves-effect">Issues
-                  <span class="badge badge-primary badge-pill pull-right">123</span>
-                </a>
-                <a class="list-group-item list-group-item-action waves-effect">Messages
-                  <span class="badge badge-primary badge-pill pull-right">8</span>
-                </a>
-              </div>
-              <!-- List group links -->
-
-            </div>
-
-          </div>
-          <!--/.Card-->
-
-        </div>
-        <!--Grid column-->
-
-      </div>
-      <!--Grid row-->
-
-      <!--Grid row-->
-      <div class="row wow fadeIn">
-
-        <!--Grid column-->
-        <div class="col-md-6 mb-4">
-
-          <!--Card-->
-          <div class="card">
-
-            <!--Card content-->
-            <div class="card-body">
-
-              <!-- Table  -->
-              <table class="table table-hover">
-                <!-- Table head -->
-                <thead class="blue-grey lighten-4">
-                  <tr>
-                    <th>#</th>
-                    <th>Lorem</th>
-                    <th>Ipsum</th>
-                    <th>Dolor</th>
-                  </tr>
-                </thead>
-                <!-- Table head -->
-
-                <!-- Table body -->
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Cell 1</td>
-                    <td>Cell 2</td>
-                    <td>Cell 3</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Cell 4</td>
-                    <td>Cell 5</td>
-                    <td>Cell 6</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Cell 7</td>
-                    <td>Cell 8</td>
-                    <td>Cell 9</td>
-                  </tr>
-                </tbody>
-                <!-- Table body -->
-              </table>
-              <!-- Table  -->
-
-            </div>
-
-          </div>
-          <!--/.Card-->
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-md-6 mb-4">
-
-          <!--Card-->
-          <div class="card">
-
-            <!--Card content-->
-            <div class="card-body">
-
-              <!-- Table  -->
-              <table class="table table-hover">
-                <!-- Table head -->
-                <thead class="blue lighten-4">
-                  <tr>
-                    <th>#</th>
-                    <th>Lorem</th>
-                    <th>Ipsum</th>
-                    <th>Dolor</th>
-                  </tr>
-                </thead>
-                <!-- Table head -->
-
-                <!-- Table body -->
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Cell 1</td>
-                    <td>Cell 2</td>
-                    <td>Cell 3</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Cell 4</td>
-                    <td>Cell 5</td>
-                    <td>Cell 6</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Cell 7</td>
-                    <td>Cell 8</td>
-                    <td>Cell 9</td>
-                  </tr>
-                </tbody>
-                <!-- Table body -->
-              </table>
-              <!-- Table  -->
-
-            </div>
-
-          </div>
-          <!--/.Card-->
-
-        </div>
-        <!--Grid column-->
-
-      </div>
+      
       <!--Grid row-->
 
       <!--Grid row-->
@@ -370,12 +156,27 @@ position:absolute;
           <div class="card">
 
             <!-- Card header -->
-            <div class="card-header">Line chart</div>
+            <div class="card-header">Exam schedule status</div>
 
             <!--Card content-->
             <div class="card-body">
 
-              <canvas id="lineChart"></canvas>
+             <table class="table table-hover" >
+              <thead class="blue-grey lighten-4" >
+                <tr>
+                  <th>Date of exam</th>
+                </tr>
+              </thead>
+               <tbody>
+                @foreach($checker as $chck)
+                  @if(Auth::user()->id == $chck->Created_by)
+                  <tr>
+                    <td>{{$chck->scheds['student_sched'].' '.$chck->scheds['status']}}</td>
+                  </tr>
+                  @endif
+                @endforeach
+               </tbody>
+             </table>
 
             </div>
 
@@ -407,49 +208,7 @@ position:absolute;
         </div>
         <!--Grid column-->
 
-        <!--Grid column-->
-        <div class="col-lg-6 col-md-6 mb-4">
 
-          <!--Card-->
-          <div class="card">
-
-            <!-- Card header -->
-            <div class="card-header">Doughnut Chart</div>
-
-            <!--Card content-->
-            <div class="card-body">
-
-              <canvas id="doughnutChart"></canvas>
-
-            </div>
-
-          </div>
-          <!--/.Card-->
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-6 col-md-6 mb-4">
-
-          <!--Card-->
-          <div class="card">
-
-            <!-- Card header -->
-            <div class="card-header">Horizontal Bar Chart</div>
-
-            <!--Card content-->
-            <div class="card-body">
-
-              <canvas id="horizontalBar"></canvas>
-
-            </div>
-
-          </div>
-          <!--/.Card-->
-
-        </div>
-        <!--Grid column-->
       </div>
       <!--Grid row-->
 
@@ -481,7 +240,7 @@ position:absolute;
           <div class="card">
 
             <!--Section: Modals-->
-            <section>
+            {{-- <section>
 
               <!-- Frame Modal Top Info-->
               <div class="modal fade top" id="frameModalTopInfoDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -1134,11 +893,11 @@ position:absolute;
               </div>
               <!-- Full Height Modal Bottom Danger Demo-->
 
-            </section>
+            </section> --}}
             <!--Section: Modals-->
 
             <!-- Card header -->
-            <div class="card-header">Modals</div>
+            {{-- <div class="card-header">Modals</div>
 
             <!--Card content-->
             <div class="card-body">
@@ -1235,7 +994,7 @@ position:absolute;
               </div>
               <!-- /.First row-->
 
-            </div>
+            </div> --}}
 
           </div>
           <!--/.Card-->
@@ -1250,70 +1009,7 @@ position:absolute;
   </main>
   <!--Main layout-->
 
-  <!--Footer-->
-  <footer class="page-footer text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn">
 
-    <!--Call to action-->
-    <div class="pt-4">
-      <a class="btn btn-outline-white" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank"
-        role="button">Download
-        MDB
-        <i class="fas fa-download ml-2"></i>
-      </a>
-      <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank" role="button">Start
-        free tutorial
-        <i class="fas fa-graduation-cap ml-2"></i>
-      </a>
-    </div>
-    <!--/.Call to action-->
-
-    <hr class="my-4">
-
-    <!-- Social icons -->
-    <div class="pb-4">
-      <a href="https://www.facebook.com/mdbootstrap" target="_blank">
-        <i class="fab fa-facebook-f mr-3"></i>
-      </a>
-
-      <a href="https://twitter.com/MDBootstrap" target="_blank">
-        <i class="fab fa-twitter mr-3"></i>
-      </a>
-
-      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
-        <i class="fab fa-youtube mr-3"></i>
-      </a>
-
-      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
-        <i class="fab fa-google-plus mr-3"></i>
-      </a>
-
-      <a href="https://dribbble.com/mdbootstrap" target="_blank">
-        <i class="fab fa-dribbble mr-3"></i>
-      </a>
-
-      <a href="https://pinterest.com/mdbootstrap" target="_blank">
-        <i class="fab fa-pinterest mr-3"></i>
-      </a>
-
-      <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
-        <i class="fab fa-github mr-3"></i>
-      </a>
-
-      <a href="http://codepen.io/mdbootstrap/" target="_blank">
-        <i class="fab fa-codepen mr-3"></i>
-      </a>
-    </div>
-    <!-- Social icons -->
-
-    <!--Copyright-->
-    <div class="footer-copyright py-3">
-      © 2019 Copyright:
-      <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
-    </div>
-    <!--/.Copyright-->
-
-  </footer>
-  <!--/.Footer-->
 
   <!-- SCRIPTS -->
   <!-- JQuery -->

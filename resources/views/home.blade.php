@@ -40,10 +40,10 @@
                 onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">
                  {{ __('Logout') }}
-                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-              </form>
-             </a><i class="material-icons black-text">menu</i></a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
+        </a><i class="material-icons black-text">menu</i></a>
       </div>
     </nav>
     <ul id="slide-out" class="side-nav">
