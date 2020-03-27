@@ -46,7 +46,7 @@ class registrationController extends Controller
 
     public function index()
     {   
-        $regExist = studentRegist::all();
+        
         // foreach($regExist as $re)
         // {
         //     if($re->Created_by == Auth::user()->id){
@@ -55,10 +55,13 @@ class registrationController extends Controller
         //         echo "this works";
         //     }
         // }
+        $regExist = studentRegist::all();
         foreach($regExist as $re){
             if($re->Created_by == Auth::user()->id){
                 return Redirect::back()->withErrors(['You already filled the form']);
-            } else {
+            } 
+            else 
+            {
                 $prog = Programs::orderBy('prog_name','asc')->get();
                 return view('studentPage.index',compact('prog'));
             }
@@ -92,7 +95,7 @@ class registrationController extends Controller
                 'lname' => 'required',
                 'gender' => 'required',
                 'age' => 'required',
-                'dob' => 'required',
+                'dob' => 'required|Date',
                 'birth_place' => 'required',
                 'cs' => 'required',
                 'religion' => 'required',
@@ -166,7 +169,9 @@ class registrationController extends Controller
                 'firstChoice' => $req->firstChoice,
                 'secondChoice' => $req->secondChoice,
             );
-            studentRegist::create($regstudent);
+           studentRegist::create($regstudent);
+
+           
 
         Session::flash('success','Basic info saved');
         return redirect('/');
