@@ -59,7 +59,7 @@
 
           <!-- Right -->
           <ul class="navbar-nav nav-flex-icons">
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
                 <i class="fab fa-facebook-f"></i>
               </a>
@@ -68,7 +68,7 @@
               <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
                 <i class="fab fa-twitter"></i>
               </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
           
               <a href="{{ route('logout') }}" class="nav-link border border-light rounded waves-effect"
@@ -166,14 +166,24 @@
              <table class="table table-hover" >
               <thead class="blue-grey lighten-4" >
                 <tr>
-                  <th>Date of exam</th>
+                  <th>Exam details</th>
+                  <th></th>
                 </tr>
               </thead>
                <tbody>
                 @foreach($checker as $chck)
                   @if(Auth::user()->id == $chck->Created_by)
                   <tr>
-                    <td>{{$chck->scheds['student_sched'].' '.$chck->scheds['status']}}</td>
+                    <td>Date of exam </td>
+                    <td>{{$chck->scheds['student_sched']}}</td>
+                  </tr>
+                  <tr>
+                    <td>Status</td>
+                    @if($chck->scheds['status'] == "accept")
+                    <td> <span class="badge badge-success" >ACCEPTED</span> </td>
+                    @elseif($chck->scheds['status'] == "pending")
+                    <td><span class="badge badge-warning" >PENDING</span></td>
+                    @endif
                   </tr>
                   @endif
                 @endforeach
@@ -195,12 +205,30 @@
           <div class="card">
 
             <!-- Card header -->
-            <div class="card-header">Radar Chart</div>
+            <div class="card-header">Basic Information</div>
 
             <!--Card content-->
             <div class="card-body">
-
-              <canvas id="radarChart"></canvas>
+              
+              <table class="table table-hover" >
+                <thead class="blue-grey lighten-4" >
+                  @foreach($checker as $chck)
+                  @if(Auth::user()->id == $chck->Created_by)
+                  <tr>
+                    <th>{{$chck->lname.', '.$chck->fname.' '.$chck->mname}}</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                 <tbody>
+                
+                    <tr>
+                      <td>Gender: {{$chck->gender}} </td>
+                      <td>{{$chck->scheds['student_sched']}}</td>
+                    </tr>
+                    @endif
+                  @endforeach
+                 </tbody>
+               </table>
 
             </div>
 
