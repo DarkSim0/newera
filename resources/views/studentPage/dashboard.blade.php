@@ -223,7 +223,11 @@
                 
                     <tr>
                       <td>Gender: {{$chck->gender}} </td>
-                      <td>{{$chck->scheds['student_sched']}}</td>
+                      <td>Date of Birth: {{$chck->dob}}</td>
+                    </tr>
+                    <tr>
+                      <td>Age: {{$chck->age}}</td>
+                      <td>Nationality: {{$chck->Nationality}}</td>
                     </tr>
                     @endif
                   @endforeach
