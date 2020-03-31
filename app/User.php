@@ -46,6 +46,6 @@ class User extends Authenticatable //implements MustVerifyEmail
     }
 
     public function level(){
-        return $this->hasOne(UserLevel::class,'id'); // select * from user_rights where id = 1
+        return $this->belongsTo('App\UserLevel','user_level'); // select * from user_rights where id = 1
     }
 }

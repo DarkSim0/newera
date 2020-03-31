@@ -9,7 +9,7 @@ class UserLevel extends Model
     //
     protected $table = 'user_rights';
     
-    public function User(){
-        return $this->belongsTo('App\User','user_level');
+    public function accessLevel(){
+        return $this->hasMany('App\User','user_level'); //select * from users where user_level
     }
 }
