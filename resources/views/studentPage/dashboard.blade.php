@@ -54,7 +54,6 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-          
           </ul>
 
           <!-- Right -->
@@ -115,6 +114,11 @@
         <a href="{{url('/schedule_exam')}}" class="list-group-item list-group-item-action waves-effect">
           Schedule Exam</a>
         @endif
+        @can('isAdmin')
+        <a class="list-group-item list-group-item-action waves-effect" href="{{url('/admin')}}">ADMIN DASHBOARD</a>
+        @elsecan('isStaff')
+        <a class="list-group-item list-group-item-action waves-effect" href="{{url('/admin')}}">ADMIN DASHBOARD</a>
+        @endcan
       </div>
 
     </div>
@@ -218,7 +222,7 @@
                     <th>{{$chck->lname.', '.$chck->fname.' '.$chck->mname}}</th>
                     <th></th>
                   </tr>
-                </thead>
+                  </thead>
                  <tbody>
                 
                     <tr>

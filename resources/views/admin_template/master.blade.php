@@ -55,7 +55,7 @@
               <div class="collapsible-body">
                 <ul>
                   <li><a href="{{url('/admin')}}" class="waves-effect active">Dashboard<i class="material-icons">web</i></a></li>
-                  <li><a href="/pages/admin-fixed-chart" class="waves-effect">Fixed Chart<i class="material-icons">list</i></a></li>
+                  <li><a href="{{url('/')}}" class="waves-effect">Student Page<i class="material-icons">list</i></a></li>
                   <li><a href="/pages/admin-grid" class="waves-effect">Grid<i class="material-icons">dashboard</i></a></li>
                   <li><a href="/pages/admin-chat" class="waves-effect">Chat<i class="material-icons">chat</i></a></li>
                 </ul>

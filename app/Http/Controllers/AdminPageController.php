@@ -31,7 +31,7 @@ class AdminPageController extends Controller
     public function index()
     {   
         $listSched = studentRegist::paginate(10);
-        if(!Gate::allows('isAdmin') || !Gate::allows('isStaff') ){
+        if(!Gate::allows('isAdmin') && !Gate::allows('isStaff')){
             abort(404,"Sorry You can't access this page");
         }
         
@@ -81,9 +81,7 @@ class AdminPageController extends Controller
     {
         //
         $confirm = studentRegist::find($id);
-        if(!Gate::allows('isAdmin')){
-            abort(404,"Sorry You can't access this page");
-        }elseif(!Gate::allows('isStaff')){
+        if(!Gate::allows('isAdmin') && !Gate::allows('isStaff') ){
             abort(404,"Sorry You can't access this page");
         }
         

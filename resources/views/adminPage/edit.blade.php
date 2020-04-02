@@ -6,6 +6,20 @@
     <h2>Status confirmation</h2>
     </div>
 </div>
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Temporary ID</span>
+          <p>{{$confirm->lname.', '.$confirm->mname.' '.$confirm->fname}}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="row equal-height-grid">
 
   <div class="col l3 s12">
@@ -14,19 +28,24 @@
       <div class="card-content">
         <span class="card-title">Student Status</span>
         <p>{{$confirm->scheds['status']}}</p>
-        <div class="divider"></div>
+        
         <form action="{{ route('update.status',$confirm->enrollID) }}" method="post">.
           @method('PATCH')
           @csrf
           <div class="card-content">
-            <div class="chat-wrapper">
+           
+              @can('isAdmin')
               <select name="status" id="">
                 <option value="accept">Accept</option>
                 <option value="reject">Reject</option>
               </select> &nbsp;
-              <button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
-            </div>
-            <div class="input-form chat-wrapper col l6 s12">
+              @endcan
+            
+            <div class="card-action col s12">
+              <a href="{{url('/admin')}}"  class="btn waves-effect btn-block " >Back</a>
+              @can('isAdmin')
+              &nbsp;<button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
+              @endcan
             </div>
           </div>
         </form>

@@ -160,7 +160,7 @@
                 <span style="text-transform: uppercase;" class="new badge" data-badge-caption="Accepted"></span>
               @else
               <span style="text-transform: uppercase;" class="new badge red" data-badge-caption="Rejected"></span>
-              @endif
+                @endif
               <span class="time">{{$ld->created_at->diffForHumans()}} </span>
               {{ $ld->lname.', '.$ld->fname.' '.$ld->mname }} 
               </a>
@@ -289,31 +289,3 @@
   </div>
 @endsection
 
-@section('scripts')
-<script >
-        
-  $('#studsearch').keyup(function(){ 
-      var query = $(this).val();
-      if(query != '')
-      {
-      var _token = $('input[name="_token"]').val();
-      $.ajax({
-      url:"{{ route('admin.search') }}",
-      method:"POST",
-      data:{query:query, _token:_token},
-      success:function(data){
-      $('#listStud').fadeIn();  
-                  $('#listStud').html(data);
-      }
-      });
-      }
-  });
-
-  $(document).on('click', 'li', function(){  
-            $('#studsearch').val($(this).text());  
-            $('#listStud').fadeOut();  
-        });  
-
- 
-</script>
-@endsection
