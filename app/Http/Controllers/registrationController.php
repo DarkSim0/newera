@@ -201,7 +201,16 @@ class registrationController extends Controller
     public function printform($id){
         $print = studentRegist::find($id);
         $pdf = PDF::loadView('studentPage.print',compact('print'));
-        return $pdf->stream('student_request.pdf');
+        if(Auth::user()->id == $print->Created_by){
+            return $pdf->stream('student_request.pdf');
+        }elseif(Auth::user()->user_level == 1 || Auth::user()->user_level == 3){
+            return $pdf->stream('student_request.pdf');
+        }
+        else{
+            abort(404,"Sorry You can't access this page");
+        }
+
+        
 
     }
 

@@ -104,8 +104,8 @@
           <a class="list-group-item list-group-item-action waves-effect" href="{{url('/student_register')}}"> Pre-register</a>
         @endif
         @foreach($checker as $chck)
-            @if(Auth::user()->id == $chck->Created_by)
-            <a target="_blank" class="list-group-item list-group-item-action waves-effect"  href="{{url('/student_register/'.Auth::user()->id)}}">Print Registration Form</a>
+          @if(Auth::user()->id == $chck->Created_by)
+            <a target="_blank" class="list-group-item list-group-item-action waves-effect"  href="{{url('/student_register/'.$chck->enrollID)}}">Print Registration Form</a>
           @endif
         @endforeach
         @if(Auth::user()->register['Created_by'] == '')
