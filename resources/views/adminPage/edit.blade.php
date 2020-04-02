@@ -14,7 +14,7 @@
           <p>{{$confirm->lname.', '.$confirm->mname.' '.$confirm->fname}}</p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <a target="_blank" href="{{url('/student_register/'.$confirm->enrollID)}}" >Print Student Form</a>
           <a href="#">This is a link</a>
         </div>
       </div>
@@ -40,13 +40,14 @@
                 <option value="reject">Reject</option>
               </select> &nbsp;
               @endcan
-            
+              
             <div class="card-action col s12">
               <a href="{{url('/admin')}}"  class="btn waves-effect btn-block " >Back</a>
               @can('isAdmin')
               &nbsp;<button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
               @endcan
             </div>
+            
           </div>
         </form>
       </div>

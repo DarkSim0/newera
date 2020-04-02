@@ -92,7 +92,7 @@
     <div class="sidebar-fixed position-fixed">
 
       <a class="logo-wrapper waves-effect" style="margin-bottom:-20px" >
-        <h2>{{Auth::user()->level['access_level']}}</h2>
+        <h2 style="text-transform:uppercase" >{{Auth::user()->level['access_level']}}</h2>
       </a>
 
       <div class="list-group list-group-flush">
