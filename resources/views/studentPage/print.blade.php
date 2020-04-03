@@ -24,17 +24,19 @@
 <body>
 <div class="container">
     <img id="neu_logo" src="{{asset('/images/neu_logo.png')}}" alt="image">
-    <center><h3 class="uk-article-title" >REGISTRATION FORM</h3></center>
+    <center><h3 class="uk-article-title">REGISTRATION FORM</h3></center>
     <center><h4 class="uk-article-meta" style="margin-top:-20px; margin-bottom:-20px;" >NEW ERA UNIVERSITY</h4></center>
     <br>
     <div class="">
         <div class="">
             <h3 class="">Entry Status: <strong>{{$print->EntryStatus}}</strong></h3>
-            <p>Name: {{$print->fname}} {{$print->mname}} {{$print->lname}} </p>
+            <p>NAME: {{$print->fname}} {{$print->mname}} {{$print->lname}} </p>
         </div>
     </div>
+    <strong >BASIC INFORMATION</strong> 
+   <hr>
     <table class="uk-table uk-table-striped">
-        <caption> <strong >Basic Information</strong> </caption>
+       
         
         <tfoot>
             <tr>
@@ -55,20 +57,14 @@
         <ul class="uk-list uk-list-striped">
             <li>Address: {{$print->streetadd}}</li>
             <li>Town province: {{$print->townprovince}}</li>
+            <li>Contact Number: {{$print->contactnum}} &nbsp; Landline(Optional): {{$print->landlinenum}}</li>
         </ul>
         
     </div>
+     <strong>FAMILY BACKGROUND</strong> 
+     <hr>
     <table class="uk-table uk-table-striped">
-        <caption> <strong>Contact Number</strong> </caption>
-        <tbody>
-            <tr>
-                <td>Contact Number: {{$print->contactnum}}</td>
-                <td>Landline(Optional): {{$print->landlinenum}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="uk-table uk-table-striped">
-        <caption> <strong>Family Background</strong> </caption>
+      
         <tbody>
             <tr>
                 <td>Father's Name </td>
@@ -93,7 +89,7 @@
         </tbody>
     </table>
     <table class="uk-table uk-table-striped">
-        <caption> <strong>Emergency Contact</strong> </caption>
+        <caption> <strong>EMERGENCY CONTACT</strong> </caption>
         <tbody>
             <tr>
                 <td>Contact Person: {{$print->contactper}}</td>
@@ -102,9 +98,10 @@
         </tbody>
     </table>
     <div class="page-break" > </div>
-   
+    <strong>EDUCATIONAL BACKGROUND</strong> 
+    <hr>
         <table class="uk-table uk-table-striped">
-            <caption> <strong>Educational Background</strong> </caption>
+            
             <tbody>
                 <tr>
                     <td>Elementary</td>
@@ -158,8 +155,10 @@
                 </tr>
             </tbody>
         </table>
+        <strong>COURSE CHOICE</strong>
+        <hr>
         <table class="uk-table uk-table-striped">
-            <caption> <strong>Course Choice</strong> </caption>
+          
             <tbody>
                 <tr>
                     <td>First Choice: </td>
@@ -171,6 +170,7 @@
                 </tr>
             </tbody>
         </table>
+       ss
    
 </div>
 </body>

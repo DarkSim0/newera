@@ -28,6 +28,7 @@ use Carbon\Carbon;
 
 use Calendar;
 
+use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
 
 
 class registrationController extends Controller
@@ -199,6 +200,7 @@ class registrationController extends Controller
         }
     }
     public function printform($id){
+       
         $print = studentRegist::find($id);
         $pdf = PDF::loadView('studentPage.print',compact('print'));
         if(Auth::user()->id == $print->Created_by){

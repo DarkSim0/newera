@@ -63,7 +63,7 @@ class studentRegist extends Model
     }
 
     public function scheds(){
-        return $this->hasOne(schedules::class,'Created_by');
+        return $this->hasOne(schedules::class,'id');
     }
 
 
