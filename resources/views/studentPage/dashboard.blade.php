@@ -189,6 +189,10 @@
                     <td><span class="badge badge-warning" >PENDING</span></td>
                     @endif
                   </tr>
+                  <tr>
+                    <td>Enroll ID</td>
+                    <td>{{$chck->enrollID}}</td>
+                  </tr>
                   @endif
                 @endforeach
                </tbody>
@@ -232,6 +236,10 @@
                     <tr>
                       <td>Age: {{$chck->age}}</td>
                       <td>Nationality: {{$chck->Nationality}}</td>
+                    </tr>
+                    <tr>
+                      <td>TEMPORAY ID</td>
+                      <td><a class="btn btn-amber" target="_blank" href="{{url('/student_register/temp_id/'.$chck->enrollID)}}">GENERATE</a></td>
                     </tr>
                     @endif
                   @endforeach

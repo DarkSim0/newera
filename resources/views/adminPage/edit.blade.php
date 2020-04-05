@@ -12,10 +12,11 @@
         <div class="card-content white-text">
           <span class="card-title">Temporary ID</span>
           <p>{{$confirm->lname.', '.$confirm->mname.' '.$confirm->fname}}</p>
+          {!! QrCode::size(100)->generate($confirm->scheds['status']); !!}
         </div>
         <div class="card-action">
           <a target="_blank" href="{{url('/student_register/'.$confirm->enrollID)}}" >Print Student Form</a>
-          <a href="#">This is a link</a>
+          <a  target="_blank" href="{{url('/student_register/temp_id/'.$confirm->enrollID)}}">GENERATE TEMP ID</a>
         </div>
       </div>
     </div>
