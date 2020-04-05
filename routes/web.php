@@ -21,6 +21,7 @@ Route::get('/student_register','registrationController@index');
 Route::post('/student_register','registrationController@store');
 Route::post('/student_contact/autocomplete','registrationController@autoComplete')->name('autocomplete.search');
 Route::get('/student_register/{id}','registrationController@printform');
+Route::get('/student_register/temp_id/{id}','registrationController@GenId');
 Route::get('/schedule_exam','registrationController@schedule');
 Route::post('/schedule_exam','registrationController@scheduleStore');
 //admin page

@@ -262,4 +262,21 @@ class registrationController extends Controller
         Session::flash('success','You have successfully reserve a slot');
 
     }
+
+    public function GenId($id){
+       
+        $print = studentRegist::find($id);
+        $pdf = PDF::loadView('studentPage.TempID',compact('print'))->setPaper('a6','portrait');
+        if(Auth::user()->id == $print->Created_by){
+            return $pdf->stream($print->lname.'_'.$print->fname.'-'.'TempID.pdf');
+        }elseif(Auth::user()->user_level == 1 || Auth::user()->user_level == 3){
+            return $pdf->stream($print->lname.'_'.$print->fname.'-'.'TempID.pdf');
+        }
+        else{
+            abort(404,"Sorry You can't access this page");
+        }
+
+        
+
+    }
 }
