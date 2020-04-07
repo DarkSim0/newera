@@ -138,7 +138,7 @@
               <div class="col s10">
                 <i class="material-icons prefix">textsms</i>
                 <input type="text" name="filter" id="studsearch"  autocomplete="off">
-                <label for="autocomplete-input" >Search Student</label>
+                <label for="autocomplete-input" >Search Student by: Last Name or First Name</label>
                 <div id="listStud" ></div> 
               </div>
             
@@ -152,18 +152,29 @@
 
           <ul class="badge-updates ">
             @foreach($listSched as $ld) 
-            <li class="collection" ><a href="{{url('/admin/confirm/'.$ld->enrollID)}}" class="collection-item">
-              
-              @if($ld->scheds['status']=='pending')
-                <span style="text-transform: uppercase;" class="new badge red " data-badge-caption="{{$ld->scheds['status']}}"></span>
-              @elseif($ld->scheds['status']=='accept')
-                <span style="text-transform: uppercase;" class="new badge" data-badge-caption="Accepted"></span>
-              @else
-              <span style="text-transform: uppercase;" class="new badge red" data-badge-caption="Rejected"></span>
+            <li class="collection" >
+              @if($ld->scheds['id'] > 0)
+                <a href="{{url('/admin/confirm/'.$ld->enrollID)}}" class="collection-item">
+                
+                @if($ld->scheds['status']=='pending')
+                  <span style="text-transform: uppercase;" class="new badge red " data-badge-caption="{{$ld->scheds['status']}}"></span>
+                @elseif($ld->scheds['status']=='accept')
+                  <span style="text-transform: uppercase;" class="new badge" data-badge-caption="Accepted"></span>
+                @elseif($ld->scheds['status'] == 'reject')
+                <span style="text-transform: uppercase;" class="new badge red" data-badge-caption="Rejected"></span>
+                @else
+                <span style="text-transform: uppercase;" class="new badge " data-badge-caption="None"></span>
                 @endif
-              <span class="time">{{$ld->created_at->diffForHumans()}} </span>
-              {{ $ld->lname.', '.$ld->fname.' '.$ld->mname }} 
-              </a>
+                <span class="time">{{$ld->created_at->diffForHumans()}} </span>
+                {{ $ld->lname.', '.$ld->fname.' '.$ld->mname.' - Tracking number: '.$ld->scheds['title'] }} 
+                </a>
+              @else
+             
+                <a href="#" style="pointer-events: none;"  class="collection-item" > 
+                  <span style="text-transform: uppercase;" class="new badge amber" data-badge-caption="no date of exam"></span>
+                  <span class="time">{{$ld->created_at->diffForHumans()}} </span>
+                  {{ $ld->lname.', '.$ld->fname.' '.$ld->mname }} </a>
+              @endif
            
             </li>
             @endforeach

@@ -10,7 +10,7 @@
     <div class="col s12 m6">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title">Temporary ID</span>
+        <span class="card-title">Transaction no: {{$confirm->scheds['title']}}</span>
           <p>{{$confirm->lname.', '.$confirm->mname.' '.$confirm->fname}}</p>
           {!! QrCode::size(100)->generate($confirm->scheds['status']); !!}
         </div>

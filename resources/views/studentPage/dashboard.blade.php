@@ -187,12 +187,21 @@
                     <td> <span class="badge badge-success" >ACCEPTED</span> </td>
                     @elseif($chck->scheds['status'] == "pending")
                     <td><span class="badge badge-warning" >PENDING</span></td>
+                    @else
+                    <td><span class="badge badge-warning" >Please select date of exam</span></td>
                     @endif
                   </tr>
-                  <tr>
-                    <td>Enroll ID</td>
-                    <td>{{$chck->enrollID}}</td>
-                  </tr>
+                    @if($chck->scheds['id'] > 0 )
+                      <tr>
+                        <td>Transaction No:</td>
+                        <td>{{$chck->scheds['title']}}</td>
+                      </tr>
+                    @else
+                      <tr>
+                        <td>Transaction No:</td>
+                        <td>Transaction number unavailable</td>
+                      </tr>
+                    @endif
                   @endif
                 @endforeach
                </tbody>
@@ -237,10 +246,18 @@
                       <td>Age: {{$chck->age}}</td>
                       <td>Nationality: {{$chck->Nationality}}</td>
                     </tr>
-                    <tr>
-                      <td>TEMPORAY ID</td>
-                      <td><a class="btn btn-amber" target="_blank" href="{{url('/student_register/temp_id/'.$chck->enrollID)}}">GENERATE</a></td>
-                    </tr>
+                      @if($chck->scheds['id'] > 0 )
+                      <tr>
+                        <td>Generate ID</td>
+                        <td><a class="btn btn-amber" target="_blank" href="{{url('/student_register/temp_id/'.$chck->enrollID)}}">GENERATE</a></td>
+                      </tr>
+                     
+                      @else
+                      <tr>
+                        <td>Generate ID</td>
+                        <td>Please select date of exam</td>
+                      </tr>
+                      @endif
                     @endif
                   @endforeach
                  </tbody>

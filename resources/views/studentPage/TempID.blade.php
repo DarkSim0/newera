@@ -35,6 +35,7 @@
     <center><img  id="qrcode" src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(200)->generate($print->scheds['status'])) }} "></center>
     
     <center><h3 class="uk-article-meta">{{$print->fname.' '.$print->mname.' '.$print->lname}}</h3></center>
+    <center><h3 class="uk-article-meta">{{$print->scheds['title']}}</h3></center>
     <table style="width:100%">
         <tr>
           <th>Gender:</th>

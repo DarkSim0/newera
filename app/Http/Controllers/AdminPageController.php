@@ -146,7 +146,8 @@ class AdminPageController extends Controller
     public function filter(Request $req){
         $filter = $req->get('filter');
         $listSched = studentRegist::where('lname','like','%'.$filter.'%')
-        ->where('fname','like','%'.$filter.'%')->paginate(10);
+        ->orWhere('fname','like','%'.$filter.'%')
+        ->paginate(10);
         return view('adminPage.index',compact('listSched'));
     }
 }
