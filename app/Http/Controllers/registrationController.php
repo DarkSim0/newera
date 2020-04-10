@@ -30,6 +30,8 @@ use Calendar;
 
 use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
 
+use App\Uploads;
+
 
 class registrationController extends Controller
 {
@@ -40,9 +42,10 @@ class registrationController extends Controller
 
     public function dash()
     {  
+        $file = Uploads::all();
         $checker = studentRegist::all();
         $data = schedules::where('status','like','%pending%')->get();
-        return view ('studentPage.dashboard',compact('checker','data'));
+        return view ('studentPage.dashboard',compact('checker','data','file'));
     }
 
     public function index()

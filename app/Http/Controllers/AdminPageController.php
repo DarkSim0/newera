@@ -14,7 +14,7 @@ use DB;
 
 use Carbon\Carbon;
 
-
+use App\Uploads;
 
 class AdminPageController extends Controller
 {
@@ -80,12 +80,13 @@ class AdminPageController extends Controller
     public function edit($id)
     {
         //
+        $files = Uploads::all();
         $confirm = studentRegist::find($id);
         if(!Gate::allows('isAdmin') && !Gate::allows('isStaff') ){
             abort(404,"Sorry You can't access this page");
         }
         
-        return view('adminPage.edit',compact('confirm'));
+        return view('adminPage.edit',compact('confirm','files'));
 
 
     }

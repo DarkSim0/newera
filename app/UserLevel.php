@@ -12,4 +12,5 @@ class UserLevel extends Model
     public function accessLevel(){
         return $this->hasMany('App\User','user_level'); //select * from users where user_level
     }
+    
 }

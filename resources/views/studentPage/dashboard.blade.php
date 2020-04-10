@@ -162,7 +162,7 @@
           <div class="card">
 
             <!-- Card header -->
-            <div class="card-header">Exam schedule status</div>
+            <div class="card-header">Other information</div>
 
             <!--Card content-->
             <div class="card-body">
@@ -214,7 +214,7 @@
 
         </div>
         <!--Grid column-->
-
+    
         <!--Grid column-->
         <div class="col-lg-6 col-md-6 mb-4">
 
@@ -246,18 +246,7 @@
                       <td>Age: {{$chck->age}}</td>
                       <td>Nationality: {{$chck->Nationality}}</td>
                     </tr>
-                      @if($chck->scheds['id'] > 0 )
-                      <tr>
-                        <td>Generate ID</td>
-                        <td><a class="btn btn-amber" target="_blank" href="{{url('/student_register/temp_id/'.$chck->enrollID)}}">GENERATE</a></td>
-                      </tr>
-                     
-                      @else
-                      <tr>
-                        <td>Generate ID</td>
-                        <td>Please select date of exam</td>
-                      </tr>
-                      @endif
+                    
                     @endif
                   @endforeach
                  </tbody>
@@ -271,7 +260,62 @@
         </div>
         <!--Grid column-->
 
+        <div class="col-lg-12 col-md-12 mb-4">
 
+          <!--Card-->
+          <div class="card">
+
+            <!-- Card header -->
+            <div class="card-header">Actions board</div>
+
+            <!--Card content-->
+            <div class="card-body">
+
+             <table class="table table-hover" >
+              <thead class="blue-grey lighten-4" >
+                <tr>
+                  <th>Details</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+               <tbody>
+                @foreach($checker as $chck)
+                  @if(Auth::user()->id == $chck->Created_by)
+                    @if($chck->scheds['id'] > 0 )
+                    <tr>
+                      <td>Generate ID</td>
+                      <td><a target="_blank" href="{{url('/student_register/temp_id/'.$chck->enrollID)}}"><span class="badge badge-warning" >Generate</span></a></td>
+                    </tr>
+                    @else
+                    <tr>
+                      <td>Generate ID</td>
+                      <td>Please select date of exam</td>
+                    </tr>
+                    @endif
+                    <form action="" method="POST" enctype="multipart/form-data" >
+                      @csrf
+                      <tr>
+                        <td>Upload File</td>
+                        <td><input type="file" name="file" >
+
+                         <input type="submit" value="submit"> </td>
+                      </tr>
+                    </form>
+                    <tr>
+                      <td>UPLOADS</td>
+                      <td>{{Auth::user()->upfiles['files']}}</td>
+                    </tr>
+                  @endif
+                @endforeach
+               </tbody>
+             </table>
+
+            </div>
+
+          </div>
+          <!--/.Card-->
+
+        </div>
       </div>
       <!--Grid row-->
 
