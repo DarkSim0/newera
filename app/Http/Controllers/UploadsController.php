@@ -47,7 +47,7 @@ class UploadsController extends Controller
         if($request->file('file')){
             $file=$request->file('file');
             $filename=time().'.'.$file->getClientOriginalExtension();
-            $request->file->move('storage/'.$filename);
+            $request->file->move('storage/',$filename);
 
             $data->file = $filename;
         }
@@ -65,7 +65,7 @@ class UploadsController extends Controller
     public function show($id)
     {
         $upload = Uploads::find($id);
-        return view('');
+        return view('studentPage.uploads',compact('upload'));
     }
 
     /**
@@ -101,4 +101,8 @@ class UploadsController extends Controller
     {
         //
     }
+    //custom
+    // public function download($file){
+
+    // }
 }

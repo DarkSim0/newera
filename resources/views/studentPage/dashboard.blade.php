@@ -306,7 +306,9 @@
                       @if(Auth::user()->upFiles['Created_by']>0)
                       <td>
                         @foreach($file as $f)
-                       <a href="#" class="btn btn-small btn-blue-grey" >{{$f->file}}</a>  
+                          @if(Auth::user()->id == $f->Created_by)
+                            <a target="_blank"  href="{{url('/upload/'.$f->id)}}" class="btn btn-small btn-blue-grey" >{{$f->file}}</a> 
+                          @endif 
                         @endforeach
                       </td>
                       @else

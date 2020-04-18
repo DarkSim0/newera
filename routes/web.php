@@ -32,5 +32,7 @@ Route::patch('/admin/confirm/{id}','AdminPageController@update')->name('update.s
 Route::get('/admin/filter','AdminPageController@filter');
 //upload
 Route::post('/','UploadsController@store');
+Route::get('/upload/{id}','UploadsController@show');
+
 
 
