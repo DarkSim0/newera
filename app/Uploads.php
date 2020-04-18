@@ -11,6 +11,6 @@ class Uploads extends Model
     protected $fillable = ['Created_by','file'];
     public function usersUploads()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 }

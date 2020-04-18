@@ -39,6 +39,10 @@ class UploadsController extends Controller
     public function store(Request $request)
     {
         //
+        $validation = $request->validate([
+            'file' => 'required',
+        ]);
+
         $data = new Uploads;
         if($request->file('file')){
             $file=$request->file('file');
@@ -60,7 +64,8 @@ class UploadsController extends Controller
      */
     public function show($id)
     {
-        //
+        $upload = Uploads::find($id);
+        return view('');
     }
 
     /**
