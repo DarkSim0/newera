@@ -11,8 +11,28 @@
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
         <span class="card-title">Transaction no: {{$confirm->scheds['title']}}</span>
-          <p>{{$confirm->lname.', '.$confirm->mname.' '.$confirm->fname}}</p>
+          <p>{{$confirm->scheds['status']}}</p>
           {!! QrCode::size(100)->generate($confirm->scheds['status']); !!}
+          <form action="{{ route('update.status',$confirm->enrollID) }}" method="post">
+            @method('PATCH')
+            @csrf
+            <div class="card-content">
+             
+                @can('isAdmin')
+                  <select name="status" id="">
+                    <option value="accept">Accept</option>
+                    <option value="reject">Reject</option>
+                  </select> &nbsp;
+                @endcan
+                  <a href="{{url('/admin')}}"  class="btn waves-effect btn-block " >Back</a>
+                @can('isAdmin')
+                  &nbsp;<button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
+                @endcan
+            </div>
+          </form>
+        </div>
+        <div>
+          
         </div>
         <div class="card-action">
           <a target="_blank" href="{{url('/student_register/'.$confirm->enrollID)}}" >Print Student Form</a>
@@ -27,30 +47,13 @@
 
     <div class="card">
       <div class="card-content">
-        <span class="card-title">Student Status</span>
-        <p>{{$confirm->scheds['status']}}</p>
+        <span class="card-title">Uploaded Files</span>
+        @foreach ($files as $item)
+         @if(Auth::user()->id == $item->Created_by )
+          <a href="">{{$item->file}}</a>
+         @endif   
+        @endforeach
         
-        <form action="{{ route('update.status',$confirm->enrollID) }}" method="post">.
-          @method('PATCH')
-          @csrf
-          <div class="card-content">
-           
-              @can('isAdmin')
-              <select name="status" id="">
-                <option value="accept">Accept</option>
-                <option value="reject">Reject</option>
-              </select> &nbsp;
-              @endcan
-              
-            <div class="card-action col s12">
-              <a href="{{url('/admin')}}"  class="btn waves-effect btn-block " >Back</a>
-              @can('isAdmin')
-              &nbsp;<button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
-              @endcan
-            </div>
-            
-          </div>
-        </form>
       </div>
     </div>
     
