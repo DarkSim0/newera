@@ -66,5 +66,9 @@ class studentRegist extends Model
         return $this->hasOne(schedules::class,'id');
     }
 
+    public function loadFiles(){
+        return $this->belongsTo(Uploads::class);
+    }
+
 
 }

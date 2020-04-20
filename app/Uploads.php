@@ -13,4 +13,9 @@ class Uploads extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function studentUploads()
+    {
+        return $this->hasOne(studentRegist::class,'Created_by');
+    }
 }

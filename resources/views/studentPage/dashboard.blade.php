@@ -302,7 +302,7 @@
                       @endif
                     </form>
                     <tr>
-                      <td>UPLOADS</td>
+                      <td>Uploads</td>
                       @if(Auth::user()->upFiles['Created_by']>0)
                       <td>
                         @foreach($file as $f)

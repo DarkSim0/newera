@@ -16,6 +16,8 @@ use Carbon\Carbon;
 
 use App\Uploads;
 
+use App\User;
+
 class AdminPageController extends Controller
 {
     /**
@@ -87,7 +89,6 @@ class AdminPageController extends Controller
         }
         
         return view('adminPage.edit',compact('confirm','files'));
-
 
     }
 

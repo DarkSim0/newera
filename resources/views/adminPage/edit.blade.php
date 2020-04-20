@@ -48,12 +48,15 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title">Uploaded Files</span>
+        <ul class="collection flush ">
         @foreach ($files as $item)
-         @if(Auth::user()->id == $item->Created_by )
-          <a href="">{{$item->file}}</a>
-         @endif   
+          @if($confirm->Created_by == $item->Created_by)
+          <li class="collection-item avatar ">
+          <a href="{{url('/upload/'.$item->id)}}"> {{$item->file}} </a>
+          </li>
+          @endif
         @endforeach
-        
+        </ul>
       </div>
     </div>
     
