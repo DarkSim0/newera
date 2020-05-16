@@ -108,7 +108,6 @@ class registrationController extends Controller
                 'streetadd' => 'required',
                 'townprovince' => 'required',
                 'emailbasic' => 'required',
-                'landlinenum' => 'required',
                 'fatherfname' => 'required',
                 'fatherlname' => 'required',
                 'fathermname' => 'required',
