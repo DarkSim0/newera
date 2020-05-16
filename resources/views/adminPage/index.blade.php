@@ -7,7 +7,7 @@
   </div><br />
 @endif
     <div class="col s12">
-      <h2>Dashboard</h2>
+      <h2 >Dashboard</h2>
     </div>
     {{-- <div class="col l3 m6 s12">
 

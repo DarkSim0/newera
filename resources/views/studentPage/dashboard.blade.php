@@ -138,7 +138,7 @@
         <div class="card-body d-sm-flex justify-content-between">
         
           <h4 class="mb-2 mb-sm-0 pt-1">
-            <a href="#" target="_blank">Welcome {{Auth::user()->level['access_level']}}</a>
+            <a href="#" >Welcome {{Auth::user()->level['access_level']}}</a>
           </h4>
           {{-- @if($errors->any())
           <h4 class="mb-2 mb-sm-0 pt-1" >{{$errors->first()}}</h4>
