@@ -34,7 +34,9 @@
       
             <div class="card card-login">
               <div class="card-login-splash">
-                <img id="neu_logo" src="{{asset('images/index.png')}}" alt="neu_logo">
+                <strong><p>NAMS SYSTEM</p></strong>
+               
+                {{-- <img id="neu_logo" src="{{asset('images/sun_logo.png')}}" alt="neu_logo"> --}}
               </div>
               <div class="card-content">
                 <span class="card-title">Log In</span>
