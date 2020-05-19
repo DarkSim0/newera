@@ -227,15 +227,15 @@ class registrationController extends Controller
                 foreach ($data as $key => $value) 
                 {
                     $events[] = Calendar::event(
-                        $value->title,
+                        $value->title." ".$value->status,
                         true,
                         new \DateTime($value->student_sched),
                         new \DateTime($value->student_schedEnd.'+1 day'),
                         null,
                         // Add color
                         [
-                            'color' => '#000000',
-                            'textColor' => '#008000',
+                            'color' => '#1aad92',
+                            'textColor' => '#edeeef',
                             //'url' => 'pass route',
                         ]
                     );
