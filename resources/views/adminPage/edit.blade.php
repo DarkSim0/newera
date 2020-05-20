@@ -17,8 +17,6 @@
         </div>
         <div class="card-action">
           <p style="text-transform:uppercase" > STATUS: {{$confirm->scheds['status']}}</p>
-          <a target="_blank" href="{{url('/student_register/'.$confirm->enrollID)}}" >Print Student Form</a>
-          <a  target="_blank" href="{{url('/student_register/temp_id/'.$confirm->enrollID)}}">GENERATE TEMP ID</a>
         </div>
       </div>
     </div>
@@ -83,13 +81,16 @@
           <li class="collection-item avatar ">
           <a href="{{url('/upload/'.$item->id)}}"> {{$item->file}} </a>
           </li>
-
+          <li class="collection-item avatar" >
+            <a target="_blank" href="{{url('/student_register/'.$confirm->enrollID)}}" >Print Student Form</a>
+          </li>
+          <li class="collection-item avatar">
+            <a  target="_blank" href="{{url('/student_register/temp_id/'.$confirm->enrollID)}}">GENERATE TEMP ID</a>
+          </li>
           <li class="collection-item avatar" >
             <form action="{{ route('update.status',$confirm->enrollID) }}" method="post">
               @method('PATCH')
               @csrf
-              
-               
                   @can('isAdmin')
                   <input type="text" name="status" value="ACCEPT" class="form-control" readonly >
                     &nbsp;
@@ -98,7 +99,6 @@
                   @can('isAdmin')
                     &nbsp;<button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
                   @endcan
-            
             </form>
           </li>
           @endif
