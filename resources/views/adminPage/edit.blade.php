@@ -3,38 +3,20 @@
 
 <div class="masonry row">
     <div class="col s12">
-    <h2>Status confirmation</h2>
+    <h2>Status Confirmation</h2>
     </div>
 </div>
 <div class="row">
-    <div class="col s12 m6">
+    <div class="col m12 m6">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
-        <span class="card-title">Transaction no: {{$confirm->scheds['title']}}</span>
-          <p>{{$confirm->scheds['status']}}</p>
-          {!! QrCode::size(100)->generate($confirm->scheds['status']); !!}
-          <form action="{{ route('update.status',$confirm->enrollID) }}" method="post">
-            @method('PATCH')
-            @csrf
-            <div class="card-content">
-             
-                @can('isAdmin')
-                  <select name="status" id="">
-                    <option value="accept">Accept</option>
-                    <option value="reject">Reject</option>
-                  </select> &nbsp;
-                @endcan
-                  <a href="{{url('/admin')}}"  class="btn waves-effect btn-block " >Back</a>
-                @can('isAdmin')
-                  &nbsp;<button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
-                @endcan
-            </div>
-          </form>
-        </div>
-        <div>
+          <span class="card-title" >
+            {{$confirm->lname.', '.$confirm->mname.' '.$confirm->fname}}
+          </span>
           
         </div>
         <div class="card-action">
+          <p style="text-transform:uppercase" > STATUS: {{$confirm->scheds['status']}}</p>
           <a target="_blank" href="{{url('/student_register/'.$confirm->enrollID)}}" >Print Student Form</a>
           <a  target="_blank" href="{{url('/student_register/temp_id/'.$confirm->enrollID)}}">GENERATE TEMP ID</a>
         </div>
@@ -43,30 +25,13 @@
   </div>
 <div class="row equal-height-grid">
 
-  <div class="col l3 s12">
+
+
+  <div class="col l4 s12">
 
     <div class="card">
       <div class="card-content">
-        <span class="card-title">Uploaded Files</span>
-        <ul class="collection flush ">
-        @foreach ($files as $item)
-          @if($confirm->Created_by == $item->Created_by)
-          <li class="collection-item avatar ">
-          <a href="{{url('/upload/'.$item->id)}}"> {{$item->file}} </a>
-          </li>
-          @endif
-        @endforeach
-        </ul>
-      </div>
-    </div>
-    
-  </div> 
-
-  <div class="col l9 s12">
-
-    <div class="card">
-      <div class="card-content">
-        <span class="card-title">{{$confirm->lname.', '.$confirm->mname.' '.$confirm->fname}}</span>
+        <span class="card-title">Transaction no: {{$confirm->scheds['title']}}</span>
         <p>{{$confirm->EntryStatus}}</p>
       </div>
       <ul class="collection flush ">
@@ -105,6 +70,43 @@
      
     </div>
 
+  </div> 
+
+  <div class="col l8 s12">
+
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Activity</span>
+        <ul class="collection flush ">
+        @foreach ($files as $item)
+          @if($confirm->Created_by == $item->Created_by)
+          <li class="collection-item avatar ">
+          <a href="{{url('/upload/'.$item->id)}}"> {{$item->file}} </a>
+          </li>
+
+          <li class="collection-item avatar" >
+            <form action="{{ route('update.status',$confirm->enrollID) }}" method="post">
+              @method('PATCH')
+              @csrf
+              
+               
+                  @can('isAdmin')
+                  <input type="text" name="status" value="ACCEPT" class="form-control" readonly >
+                    &nbsp;
+                  @endcan
+                    <a href="{{url('/admin')}}"  class="btn waves-effect btn-block " >Back</a>
+                  @can('isAdmin')
+                    &nbsp;<button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
+                  @endcan
+            
+            </form>
+          </li>
+          @endif
+        @endforeach
+        </ul>
+      </div>
+    </div>
+    
   </div> 
 </div>
 @endsection
