@@ -8,6 +8,12 @@
 @endif
     <div class="col s12">
       <h2 >Dashboard</h2>
+      <form action="" method="post" >
+        @csrf
+        <p>NUMBER OF SLOTS AVAILABLE: 200 <button class="btn" > reset </button></p>
+     </form>
+
+     
     </div>
     {{-- <div class="col l3 m6 s12">
 

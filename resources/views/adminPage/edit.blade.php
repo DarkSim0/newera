@@ -98,12 +98,17 @@
             @method('PATCH')
             @csrf
                 @can('isAdmin')
-                <div class="col l4" >
+                <div class="col l2" >
                   <input type="text" name="status" value="ACCEPT" class="form-control" readonly >
                 </div>
                 @endcan
                 @can('isAdmin')
+                @if( $confirm->scheds['status'] == "accept" )
+                  <button  class="btn disabled" type="submit">Confirmed</button>
+                @else
                  <button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
+                @endif
+                 
                 @endcan
           </form>
         </li>
