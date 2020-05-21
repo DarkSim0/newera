@@ -10,7 +10,7 @@
     <div class="col m12 m6">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title" >
+          <span class="card-title" style="text-transform:uppercase"  >
             {{$confirm->lname.', '.$confirm->mname.' '.$confirm->fname}}
           </span>
           
@@ -78,35 +78,38 @@
         <ul class="collection flush ">
         @foreach ($files as $item)
           @if($confirm->Created_by == $item->Created_by)
+        
           <li class="collection-item avatar ">
-          <a href="{{url('/upload/'.$item->id)}}"> {{$item->file}} </a>
-          </li>
-          <li class="collection-item avatar" >
-            <a target="_blank" href="{{url('/student_register/'.$confirm->enrollID)}}" >Print Student Form</a>
-          </li>
-          <li class="collection-item avatar">
-            <a  target="_blank" href="{{url('/student_register/temp_id/'.$confirm->enrollID)}}">GENERATE TEMP ID</a>
-          </li>
-          <li class="collection-item avatar" >
-            <form action="{{ route('update.status',$confirm->enrollID) }}" method="post">
-              @method('PATCH')
-              @csrf
-                  @can('isAdmin')
-                  <input type="text" name="status" value="ACCEPT" class="form-control" readonly >
-                    &nbsp;
-                  @endcan
-                    <a href="{{url('/admin')}}"  class="btn waves-effect btn-block " >Back</a>
-                  @can('isAdmin')
-                    &nbsp;<button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
-                  @endcan
-            </form>
+            <label for="">Uploads</label>
+            <a href="{{url('/upload/'.$item->id)}}"> {{$item->file}} </a>
           </li>
           @endif
         @endforeach
+
+        <li class="collection-item avatar" >
+         
+          <a target="_blank" href="{{url('/student_register/'.$confirm->enrollID)}}" >Print Student Form</a>
+        </li>
+        <li class="collection-item avatar">
+          <a  target="_blank" href="{{url('/student_register/temp_id/'.$confirm->enrollID)}}">GENERATE TEMP ID</a>
+        </li>
+        <li class="collection-item avatar" >
+          <form action="{{ route('update.status',$confirm->enrollID) }}" method="post">
+            @method('PATCH')
+            @csrf
+                @can('isAdmin')
+                <div class="col l4" >
+                  <input type="text" name="status" value="ACCEPT" class="form-control" readonly >
+                </div>
+                @endcan
+                @can('isAdmin')
+                 <button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
+                @endcan
+          </form>
+        </li>
         </ul>
       </div>
     </div>
-    
   </div> 
 </div>
 @endsection

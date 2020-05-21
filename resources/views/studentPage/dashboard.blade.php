@@ -293,9 +293,10 @@
                       @csrf
                       <tr>
                         <td>Upload File</td>
-                        <td><input type="file" name="file" >
-
-                         <input type="submit" value="submit"> </td>
+                        <td class="file-field input-field">
+                          <input type="file" name="file" >
+                         <input type="submit" value="submit"> 
+                        </td>
                       </tr>
                       @if ($errors->has('file'))
                         <strong style="color: red" >You have not uploaded a file</strong>
