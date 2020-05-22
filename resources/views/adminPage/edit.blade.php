@@ -99,6 +99,9 @@
             @csrf
                 @can('isAdmin')
                 <div class="col l2" >
+                  @foreach($slot as $s)
+                    <p>{{$s->slots}}</p>
+                  @endforeach
                   <input type="text" name="status" value="ACCEPT" class="form-control" readonly >
                 </div>
                 @endcan
