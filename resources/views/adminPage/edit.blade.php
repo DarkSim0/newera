@@ -99,17 +99,14 @@
             @csrf
                 @can('isAdmin')
                 <div class="col l2" >
-                  @foreach($slot as $s)
-                    <p>{{$s->slots}}</p>
-                  @endforeach
-                  <input type="text" name="status" value="ACCEPT" class="form-control" readonly >
+                  <input type="text" name="status" value="accept" class="form-control" readonly >
                 </div>
                 @endcan
                 @can('isAdmin')
                 @if( $confirm->scheds['status'] == "accept" )
-                  <button  class="btn disabled" type="submit">Confirmed</button>
+                  <button  class="btn-flat btn-small disabled" type="submit">Confirmed</button>
                 @else
-                 <button class="btn waves-effect btn-block pulse" type="submit">Confirm</button>
+                 <button class="btn waves-effect btn-small pulse" type="submit">Confirm</button>
                 @endif
                  
                 @endcan

@@ -88,14 +88,14 @@ class AdminPageController extends Controller
     public function edit($id)
     {
         //
-        $slot = Slots::latest();
+       
         $files = Uploads::all();
         $confirm = studentRegist::find($id);
         if(!Gate::allows('isAdmin') && !Gate::allows('isStaff') ){
             abort(404,"Sorry You can't access this page");
         }
         
-        return view('adminPage.edit',compact('confirm','files','slot'));
+        return view('adminPage.edit',compact('confirm','files'));
 
     }
 
@@ -116,13 +116,6 @@ class AdminPageController extends Controller
         $update->status = $request->get('status');
         $update->save();
 
-        $reserve = array(
-            'slots' => $request->slots,
-            'reserved' => $request->reserved,
-            'student_sched' => $request->student_schedEnd,
-        );
-        Slots::create($reserve);
-       
         return redirect('/admin')->with('success', 'Student record successfully updated');
     }
 
@@ -166,4 +159,6 @@ class AdminPageController extends Controller
         ->paginate(10);
         return view('adminPage.index',compact('listSched'));
     }
+
+   
 }

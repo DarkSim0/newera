@@ -46,7 +46,7 @@
         </nav>
       </div>
       <ul id="sidenav-left" class="sidenav sidenav-fixed">
-        <li><a href="/pages/admin-dashboard" class="logo-container">{{Auth::user()->name}}<img id="neulogo" src="{{
+        <li><a href="#" class="logo-container">{{Auth::user()->name}}<img id="neulogo" src="{{
           asset('/images/neu_logo.png')
           }}" alt="neu" srcset=""></a></li>
         <li class="no-padding">

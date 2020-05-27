@@ -20,6 +20,7 @@ Schedule your exam
             </div>
          
         @endif
+ 
         <div class="panel-body">
            {!! $calendar->calendar() !!}
         </div>

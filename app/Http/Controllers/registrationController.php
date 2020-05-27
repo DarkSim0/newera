@@ -32,6 +32,8 @@ use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
 
 use App\Uploads;
 
+use App\Slots;
+
 
 class registrationController extends Controller
 {
@@ -219,6 +221,7 @@ class registrationController extends Controller
     }
 
     public function schedule(){
+        $slot = DB::table('slots')->latest('created_at','desc')->first();
         {
             $events = [];
             $data = schedules::where('status','!=','pending')->get();
@@ -242,7 +245,7 @@ class registrationController extends Controller
                 }
         }
         $calendar = Calendar::addEvents($events);
-        return view('studentPage.schedule',compact('calendar'));
+        return view('studentPage.schedule',compact('calendar','slot'));
         }
     }
 
@@ -260,6 +263,13 @@ class registrationController extends Controller
             'title' => Auth::user()->id.$date->year.$date->month.$date->hour.$date->minute,
         );
         schedules::create($schedStudent);
+
+        // $reserve = DB::table('slots')->latest('created_at','desc')->first();
+        // $reserve->slots = $req->get('slots');
+        // $reserve->reserved = $req->get('reserved');
+        // $reserve->student_sched = $req->get('student_sched');
+        // Slots::create($reserve);  
+
         return redirect('/');
         Session::flash('success','You have successfully reserve a slot');
 
