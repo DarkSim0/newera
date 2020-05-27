@@ -87,12 +87,8 @@ class AdminPageController extends Controller
      */
     public function edit($id)
     {
-<<<<<<< HEAD
         //
        
-=======
-      
->>>>>>> 1d36fc8240e1ee377315927b23062a2527f76c80
         $files = Uploads::all();
         $confirm = studentRegist::find($id);
         if(!Gate::allows('isAdmin') && !Gate::allows('isStaff') ){
@@ -119,11 +115,6 @@ class AdminPageController extends Controller
         $update =  schedules::find($id);
         $update->status = $request->get('status');
         $update->save();
-<<<<<<< HEAD
-
-=======
-       
->>>>>>> 1d36fc8240e1ee377315927b23062a2527f76c80
         return redirect('/admin')->with('success', 'Student record successfully updated');
     }
 
