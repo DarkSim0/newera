@@ -34,8 +34,9 @@
       
             <div class="card card-login">
               <div class="card-login-splash">
-                <strong><p>NAMS SYSTEM</p></strong>
-               
+                <center>
+                  <strong><p>Admission Management System for New Era University</p></strong>
+                </center>
                 {{-- <img id="neu_logo" src="{{asset('images/sun_logo.png')}}" alt="neu_logo"> --}}
               </div>
               <div class="card-content">
@@ -58,9 +59,7 @@
                                 </span>
                             @endif
                     </div>
-      
                   <a href="#!">Forgot Password?</a>
-      
                   <br><br>
                   <div>
                     <button type="submit" class="btn right waves-effect waves-light blue">
